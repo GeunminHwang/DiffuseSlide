@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="description" content="ProPainter for Video Inpainting">
+  <meta name="keywords" content="ProPainter, Video Inpainting, Video Completion, Watermark Removal, Temporal Propogation">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>MetaFormer: High-fidelity Metalens Imaging via Aberration Correcting Transformers</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+
+  </script> -->
+  <style>
+  .hr {width: 100%; height: 1px; margin: 48px 0; background-color: #d6dbdf;}
+  </style>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- custom css file  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/twentytwenty.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop head">
+      <div class="columns is-centered">
+        <div class="column has-text-centered head">
+            <h1 class="title is-2" style="color: #fb5a42;">
+            MetaFormer
+            </h1>
+            <h2 class="title is-3 publication-title">  
+            High-fidelity Metalens Imaging via Aberration Correcting Transformers
+            </h2>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Byeonghyeon Lee<sup>1</sup>,</span>
+            <span class="author-block">
+              Youbin Kim<sup>1</sup>,</span>
+            <span class="author-block">
+              Yongjae Jo</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Hyunsu Kim</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Hyemi Park</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Yangkyu Kim</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Debabrata Mandal</a><sup>2</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://www.cs.unc.edu/~cpk/">Praneeth Chakravarthula</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.bionanophotonics-skku.com/pi">Inki Kim</a><sup>1</sup>, and </span>
+            </span>
+            <span class="author-block">
+              <a href="https://silverbottlep.github.io/">Eunbyung Park</a><sup>1</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Sungkyunkwan University</span>
+            <span class="author-block"><sup>2</sup>University of North Carolina at Chapel Hill</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">arXiv</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2309.03897" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block"> 
+                <a href="https://github.com/sczhou/ProPainter" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Data Link. -->
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-image"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- first row -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title is-5" style="margin-bottom: 10px;">Image Aberration Correction</h3>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/152.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/152.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/1.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/1.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/3.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/3.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/61.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/61.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/221.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/221.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/118.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/118.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/136.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/136.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/172.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/172.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/181.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/181.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video"><img src="./assets/images/real/input/160.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/160.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- second row -->
+<section class="hero is-light is-small">
+  <div class="hero-body second-body">
+    <div class="container">
+      <h3 class="title is-5" style="margin-bottom: 10px;">Video Aberration Correction</h3>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video muted autoplay="autoplay" loop="loop" width="100%">
+            <source src="./assets/videos/DVD_720p_240fps_2.mp4" type="video/mp4">
+          </video>  
+        </div>
+        <div class="item">
+          <video muted autoplay="autoplay" loop="loop" width="100%">
+            <source src="./assets/videos/DVD_IMG_0003.mp4" type="video/mp4">
+          </video>  
+        </div>
+        <div class="item">
+          <video muted autoplay="autoplay" loop="loop" width="100%">
+            <source src="./assets/videos/DVD_720p_240fps_2.mp4" type="video/mp4">
+          </video>  
+        </div>
+        <div class="item">
+          <video muted autoplay="autoplay" loop="loop" width="100%">
+            <source src="./assets/videos/DVD_IMG_0003.mp4" type="video/mp4">
+          </video>  
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- third row -->
+<section class="hero is-light is-small">
+  <div class="hero-body second-body">
+    <div class="container">
+      <h3 class="title is-5" style="margin-bottom: 10px;">3D Reconstruction with Aberrated Images</h3>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <!-- <div class="desc">Object Removal</div> -->
+            <div class="video">
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/3d-gs/flower_gs.mp4" type="video/mp4">
+              </video> 
+            </div>
+            <div class="video">
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/3d-gs/flower_ours.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <!-- <div class="desc">Object Removal</div> -->
+            <div class="video">
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/3d-gs/leaves_gs.mp4" type="video/mp4">
+              </video> 
+            </div>
+            <div class="video">
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/leaves_ours.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <!-- <div class="desc">Object Removal</div> -->
+            <div class="video">
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/3d-gs/horns_gs.mp4" type="video/mp4">
+              </video> 
+            </div>
+            <div class="video">
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/3d-gs/horns_ours.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <!-- <div class="desc">Object Removal</div> -->
+            <div class="video">
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/3d-gs/room_gs.mp4" type="video/mp4">
+              </video> 
+            </div>
+            <div class="video">
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/3d-gs/room_ours.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+<script>
+  const containers = document.querySelectorAll('.twentytwenty-container');
+
+  containers.forEach((container) => {
+    const videos = container.querySelectorAll('video');
+    if (videos.length === 2) {
+      const video1 = videos[0];
+      const video2 = videos[1];
+
+      let video1Loaded = false;
+      let video2Loaded = false;
+
+      video1.addEventListener('loadeddata', () => {
+        video1Loaded = true;
+        syncVideos();
+      });
+
+      video2.addEventListener('loadeddata', () => {
+        video2Loaded = true;
+        syncVideos();
+      });
+
+      function syncVideos() {
+        if (video1Loaded && video2Loaded) {
+          video1.currentTime = 0;
+          video2.currentTime = 0;
+
+          video1.play();
+          video2.play();
+        }
+      }
+
+      video1.addEventListener('timeupdate', () => {
+        if (Math.abs(video1.currentTime - video2.currentTime) > 0.1) {
+          video2.currentTime = video1.currentTime;
+        }
+      });
+
+      video2.addEventListener('timeupdate', () => {
+        if (Math.abs(video2.currentTime - video1.currentTime) > 0.1) {
+          video1.currentTime = video2.currentTime;
+        }
+      });
+
+      video1.addEventListener('ended', () => {
+        video2.currentTime = 0;
+        video2.play();
+      });
+
+      video2.addEventListener('ended', () => {
+        video1.currentTime = 0;
+        video1.play();
+      });
+    }
+  });
+</script>
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+      <!-- <div class="column"> -->
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Metalens is an emerging optical system with an irreplaceable merit in that it can be manufactured in ultra-thin and compact sizes, 
+            which shows great promise of application in various industries such as medical industries and augmented/virtual reality (AR/VR). 
+            Despite its advantage in miniaturization, its practicality is constrained due to the severe aberrations and distortions, 
+            resulting in image quality degradation. Several previous arts have attempted to address different types of aberrations, 
+            yet most of them are mainly designed for the traditional bulky lens and not convincing enough to remedy harsh aberrations of the metalens. 
+            While there have existed aberration correction methods specifically for metalens, they still fall short of restoration quality. 
+            In this work, we propose MetaFormer, an aberration correction framework for metalens-captured images, harnessing Vision Transformers (ViT) that has shown remarkable restoration performance in diverse image restoration tasks. 
+            Specifically, we devise a Multiple Adaptive Filters Guidance (MAFG), where multiple Wiener filters enrich the degraded input images with various noise-detail balances, enhancing output restoration quality. 
+            In addition, we introduce a Spatial and Transposed self-Attention Fusion (STAF) module, which aggregates features from spatial self-attention and transposed self-attention modules to further ameliorate aberration correction. 
+            We conduct extensive experiments, including correcting aberrated images and videos, and clean 3D reconstruction from the degraded images. 
+            The proposed method outperforms the previous arts by a significant margin. 
+            We further fabricate a metalens and verify the practicality of MetaFormer by restoring the images captured with the manufactured metalens in the wild.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-four-fifths"> -->
+      <div class="column">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <div class="column">
+            <img src="./assets/images/fig_architecture.jpg" />
+          </div>
+          <p>
+            MetaFormer comprises Multiple Adaptive Filters Guidance (MAFG) which produces different representations
+            with various noise-detail balances, and a Spatial and Transposed self-Attention Fusion (STAF) module that aggregates features differently
+            in encoder and decoder.
+          </p>
+          <br>
+          <h4 class="title is-5" style="margin-bottom: 10px;">Multiple Adaptive Filters Guidance (MAFG)</h4>
+          <div class="column">
+            <img src="./assets/images/fig_MAFG.jpg" />
+          </div>
+          <p>
+            We propose to use multiple Wiener filters to guide aberration correction with several distinct representations.
+            It is not feasible to obtain an optimal Wiener filter with accurate SNR as noise distribution is unknown in the real world.
+            Instead of estimating the noise distribution, we adopt multiple Wiener filters with different \( K \).
+            We use \( M \) Wiener filters and deconvolve the input image to yield \( M \) different representations—some focused on noise removal, others with fine information.
+            Various representations are fed to the restoration model, and they can enrich the features complementarily, which in turn improves aberration correction.
+            <br>
+            We extend multiple Wiener filters to Multiple Adaptive Filters Guidance (MAFG), which determines \( K \) adaptively considering the image intensity.
+            Image with higher intensity tends to have better signal quality, so brighter channels often experience less noise and are less sensitive to noise. 
+            Thus, we penalize noise less and capture more information for bright images by adjusting \( K \) with the image intensity. 
+            Also, we treat each channel differently to avoid suppressing high-SNR details unnecessarily.
+          </p>
+          <h4 class="title is-5" style="margin-bottom: 10px;">Spatial and Transposed self-Attention Fusion (STAF)</h4>
+          <div class="column">
+            <center>
+              <img src="./assets/images/fig_STAF.jpg" style="width: 50%; height: auto;" />
+            </center>
+          </div>
+          <p>
+            MetaFormer comprises <b>Multiple Adaptive Filters Guidance (MAFG)</b> which produces different representations
+            with various noise-detail balances, and a <b>Spatial and Transposed self-Attention Fusion (STAF)</b> module that aggregates features differently
+            in encoder and decoder.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@InProceedings{zhou2023propainter,
+      title     = {{ProPainter}: Improving Propagation and Transformer for Video Inpainting},
+      author    = {Zhou, Shangchen and Li, Chongyi and Chan, Kelvin C.K and Loy, Chen Change},
+      booktitle = {Proceedings of IEEE International Conference on Computer Vision (ICCV)},
+      year      = {2023}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <div class="columns is-centered"><p>
+            This website template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Here</a>. 
+            Feel free to clone this website's <a href="https://github.com/sczhou/ProPainter_website" target="_blank">source code</a>.
+            Thank you!
+          </p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- custom js file  -->
+  <!-- <script defer src="./assets/js/fontawesome.all.min.js"></script> -->
+  <script src="./assets/js/bulma-carousel.min.js"></script>
+  <script src="./assets/js/bulma-slider.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/jquery.event.move.js"></script>
+  <script src="./assets/js/jquery.twentytwenty.js"></script>
+  <script>
+  $(function(){
+    $(".twentytwenty-container").twentytwenty();
+    // $(".twentytwenty-container", "#results-carousel").twentytwenty({default_offset_pct: 0.5, ratio: 0.5});
+  });
+  </script>
+</body>
+</html>
