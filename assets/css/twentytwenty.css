@@ -99,11 +99,6 @@
 	-ms-user-select: none;
 }
 
-.twentytwenty-container .video {
-	display: block;
-	max-width: 100%;
-}
-
 .twentytwenty-container .video.twentytwenty-before {
 	position: absolute;
 	top: 0;
@@ -112,10 +107,15 @@
 	right: 0;
 }
 
-.twentytwenty-container video {
+/* .twentytwenty-container video {
   width: 100%;
 	max-width: 100%;
-}
+} */
+.twentytwenty-container .video {
+	height: 100%;
+	  max-height: 100%;
+  }
+
 
 .twentytwenty-container.active .twentytwenty-overlay, .twentytwenty-container.active :hover.twentytwenty-overlay {
 	background: rgba(0, 0, 0, 0);
