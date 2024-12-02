@@ -139,6 +139,12 @@ body {
   /* height: 100%; */
 }
 
+/* .results-carousel .item img {
+  object-fit: contain;
+  max-height: 100%;
+  overflow: visible;
+} */
+
 .results-carousel .item {
   margin: 5px;
   overflow: hidden;
@@ -148,13 +154,25 @@ body {
   font-size: 0;
 }
 
+
 .results-carousel .desc {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
-  font-size: 14px;
+  font-size: 20px;
   padding: 3px 10px;
   position: absolute;
   right: 0;
+  bottom: 0;
+  z-index: 128;
+}
+
+.results-carousel .desc_left {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 20px;
+  padding: 3px 10px;
+  position: absolute;
+  left: 0;
   bottom: 0;
   z-index: 128;
 }

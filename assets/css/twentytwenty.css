@@ -92,11 +92,12 @@
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
 	z-index: 0;
-	overflow: hidden;
+	overflow: visible;
 	position: relative;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
+    /* height: auto !important; */
 }
 
 .twentytwenty-container .video.twentytwenty-before {
@@ -107,13 +108,9 @@
 	right: 0;
 }
 
-/* .twentytwenty-container video {
-  width: 100%;
-	max-width: 100%;
-} */
 .twentytwenty-container .video {
-	height: 100%;
-	  max-height: 100%;
+	width: 100%;
+	  max-width: 100%;
   }
 
 

@@ -4,10 +4,10 @@
     var options = $.extend({
       default_offset_pct: 0.5,
       orientation: 'horizontal',
-      before_label: 'Real-captured',
-      after_label: 'Restored',
+      before_label: '',
+      after_label: '',
       no_overlay: false,
-      move_slider_on_hover: false,
+      move_slider_on_hover: true,
       move_with_handle_only: true,
       click_to_move: false,
       ratio: 0.5
