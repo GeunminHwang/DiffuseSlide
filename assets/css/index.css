@@ -223,13 +223,16 @@ body {
   height: auto;
 }
 
-#controls {
+.carousel-controls {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-#seekBar, #volume {
-  flex: 1;
+.carousel-controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
 }
+
