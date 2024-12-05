@@ -25,7 +25,14 @@
   .hr {width: 100%; height: 1px; margin: 48px 0; background-color: #d6dbdf;}
   </style>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+
   <link rel="stylesheet" href="./assets/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
@@ -714,8 +721,9 @@
       <div class="column">
         <h2 class="title is-3">Metalens Fabrication</h2>
         <div class="content has-text-justified">
-          <div class="column">
-            <img src="./assets/images/fig_metalens.jpg" />
+          <div class="image-row">
+            <img src="./assets/images/fig_metalens.jpg" alt="Metalens Figure" style="width: 60%; margin-right: 20px"/>
+            <img src="./assets/images/fig_fab.jpg" alt="Fabrication Figure" style="width: 40%; margin-bottom: 20px;"/>
           </div>
           <p>
             We fabricated a metalens with the PSF from <a href="https://light.princeton.edu/publication/neural-nano-optics/" target="_blank">Neural Nano optics</a>. 
@@ -725,11 +733,11 @@
             <br>
             A 750 nm thick SiN layer was deposited onto a SiO<sub>2</sub> substrate using plasma-enhanced chemical vapor deposition to fabricate the designed metalens. 
             A 200 nm thick positive photoresist layer was spin-coated at 4000 RPM. 
-            The pattern of circular nano-pillar meta-atoms was then transferred onto the positive photoresist using electron beam lithography, with a dose of 3.75 C/m<sup>2</sup>. 
+            The pattern of circular nano-pillar meta-atoms was then transferred onto the positive photoresist using electron beam lithography (Figure (a)), with a dose of 3.75 C/m<sup>2</sup>. 
             To prevent charging, 100 μL of ESPACER was spin-coated at 2000 RPM for 30 seconds. 
             <br>
             The exposed resist was developed in a 1:3 solution of methyl isobutyl ketone/isopropyl alcohol for 11 minutes. 
-            Subsequently, a 40 nm thick chromium layer was deposited as a hard mask using an electron beam evaporator. 
+            Subsequently, a 40 nm thick chromium layer was deposited as a hard mask using an electron beam evaporator (Figure (b)). 
             The unexposed photoresist was removed through a lift-off process in acetone at room temperature for 1 hour, leaving the Cr hard mask intact. 
             Patterning was finalized using inductively coupled plasma etching with SF<sub>6</sub> and C<sub>4</sub>H<sub>8</sub> gases for 10 minutes. 
             Finally, the Cr hard mask was removed using a chromium etchant for 5 minutes.
