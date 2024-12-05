@@ -213,33 +213,6 @@ body {
   border-radius: 5px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  margin-top: 20px;
-}
-th, td {
-  border: 1px solid black;
-  padding: 8px;
-}
-th {
-  font-weight: bold;
-  border-bottom: 2px solid black;
-}
-td {
-  font-size: 1em;
-}
-.bold {
-  font-weight: bold;
-}
-.top-border {
-  border-top: 2px solid black;
-}
-.numeric {
-  font-family: 'Noto Sans', sans-serif;
-}
-
 .image-row {
   display: flex;
   justify-content: center;
