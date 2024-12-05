@@ -242,10 +242,10 @@ td {
 
 .image-row {
   display: flex;
-  justify-content: center; /* 중앙 정렬 */
-  align-items: center; /* 세로 정렬 */
-  gap: 10px; /* 이미지 간 간격 */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 .image-row img {
-  height: auto; /* 비율 유지 */
+  height: auto;
 }
