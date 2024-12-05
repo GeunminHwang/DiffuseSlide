@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="./assets/css/twentytwenty.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
@@ -168,13 +168,13 @@
               <div class="desc_left">VRT</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
                 <source src="./assets/videos/DVD/IMG_0003_vrt.mp4" type="video/mp4">
-              </video> 
+              </video>
             </div>
             <div class="video">
               <div class="desc">Ours</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
                 <source src="./assets/videos/DVD/IMG_0003_ours_meta.mp4" type="video/mp4">
-              </video> 
+              </video>
             </div>
           </div>          
         </div>
@@ -185,60 +185,12 @@
               <div class="desc_left">VRT</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
                 <source src="./assets/videos/DVD/IMG_0021_vrt.mp4" type="video/mp4">
-              </video> 
+              </video>
             </div>
             <div class="video">
               <div class="desc">Ours</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
                 <source src="./assets/videos/DVD/IMG_0021_ours_meta.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
-            <div class="video">
-              <div class="desc_left">VRT</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0030_vrt.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0030_ours_meta.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
-            <div class="video">
-              <div class="desc_left">VRT</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0031_vrt.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0031_ours_meta.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
-            <div class="video">
-              <div class="desc_left">VRT</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0032_vrt.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0032_ours_meta.mp4" type="video/mp4">
               </video>
             </div>
           </div>
@@ -247,15 +199,11 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
             <div class="video">
               <div class="desc_left">VRT</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0033_vrt.mp4" type="video/mp4">
-              </video> 
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0030_vrt.mp4" type="video/mp4"></video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0033_ours_meta.mp4" type="video/mp4">
-              </video> 
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0030_ours_meta.mp4" type="video/mp4"></video> 
             </div>
           </div>
         </div>
@@ -263,15 +211,47 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
             <div class="video">
               <div class="desc_left">VRT</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0037_vrt.mp4" type="video/mp4">
-              </video> 
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0031_vrt.mp4" type="video/mp4"></video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0037_ours_meta.mp4" type="video/mp4">
-              </video> 
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0031_ours_meta.mp4" type="video/mp4"></video> 
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
+            <div class="video">
+              <div class="desc_left">VRT</div>
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0032_vrt.mp4" type="video/mp4"></video> 
+            </div>
+            <div class="video">
+              <div class="desc">Ours</div>
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0032_ours_meta.mp4" type="video/mp4"></video>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
+            <div class="video">
+              <div class="desc_left">VRT</div>
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0033_vrt.mp4" type="video/mp4"></video> 
+            </div>
+            <div class="video">
+              <div class="desc">Ours</div>
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0033_ours_meta.mp4" type="video/mp4"></video> 
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
+            <div class="video">
+              <div class="desc_left">VRT</div>
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0037_vrt.mp4" type="video/mp4"></video> 
+            </div>
+            <div class="video">
+              <div class="desc">Ours</div>
+              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0037_ours_meta.mp4" type="video/mp4"></video> 
             </div>
           </div>
         </div>
@@ -281,13 +261,13 @@
               <div class="desc_left">VRT</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
                 <source src="./assets/videos/DVD/IMG_0039_vrt.mp4" type="video/mp4">
-              </video> 
+              </video>
             </div>
             <div class="video">
               <div class="desc">Ours</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
                 <source src="./assets/videos/DVD/IMG_0039_ours_meta.mp4" type="video/mp4">
-              </video> 
+              </video>
             </div>
           </div>
         </div>
@@ -320,13 +300,13 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video autoplay="autoplay" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/llff/flower_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video autoplay="autoplay" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/llff/flower_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -337,13 +317,13 @@
             
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video autoplay="autoplay" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/llff/leaves_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video autoplay="autoplay" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/llff/leaves_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -354,13 +334,13 @@
             
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/llff/horns_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/llff/horns_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -371,13 +351,13 @@
             
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/llff/room_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/llff/room_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -387,13 +367,13 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.56">
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/tanksandtemples/train_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/tanksandtemples/train_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -403,13 +383,13 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.56">
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/tanksandtemples/truck_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/tanksandtemples/truck_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -420,13 +400,13 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/360/kitchen_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/360/kitchen_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -436,13 +416,13 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/360/garden_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/360/garden_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -452,13 +432,13 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/360/bonsai_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video class="lazy" preload="none" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/360/bonsai_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -468,13 +448,13 @@
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
             <div class="video">
               <div class="desc_left">3D-GS</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video autoplay="autoplay" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/360/counter_gs.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
               <div class="desc">Ours</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
+              <video autoplay="autoplay" muted loop="loop" width="100%">
                 <source src="./assets/videos/3d-gs/360/counter_ours.mp4" type="video/mp4">
               </video> 
             </div>
@@ -549,6 +529,43 @@
 </section>
 
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+      root: null,
+      threshold: 0.1,
+    };
+  
+    const items = document.querySelectorAll(".item");
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const videos = entry.target.querySelectorAll("video");
+  
+        if (entry.isIntersecting) {
+          videos.forEach((video) => {
+            if (video.hasAttribute("data-src") && !video.src) {
+              video.src = video.getAttribute("data-src");
+              video.removeAttribute("data-src");
+            }
+            if (video.paused) {
+              video.play();
+            }
+          });
+        } else {
+          videos.forEach((video) => {
+            if (!video.paused) {
+              video.pause();
+            }
+          });
+        }
+      });
+    }, observerOptions);
+  
+    items.forEach((item) => observer.observe(item));
+  });
+</script>
+
+<script>
   const containers = document.querySelectorAll('.twentytwenty-container');
 
   containers.forEach((container) => {
@@ -604,6 +621,7 @@
     }
   });
 </script>
+
 <script>
   document.querySelectorAll('.twentytwenty-container').forEach(container => {
     container.addEventListener('mousemove', (event) => {
@@ -631,9 +649,9 @@
         <div class="content has-text-justified">
           <p>
             Metalens is an emerging optical system with an irreplaceable merit in that it can be manufactured in ultra-thin and compact sizes, 
-            which shows great promise of application in various industries such as medical industries and augmented/virtual reality (AR/VR). 
-            Despite its advantage in miniaturization, its practicality is constrained due to the severe aberrations and distortions, 
-            resulting in image quality degradation. Several previous arts have attempted to address different types of aberrations, 
+            which shows great promise of various applications such as medical imaging and augmented/virtual reality (AR/VR). 
+            Despite its advantage in miniaturization, its practicality is constrained by severe aberrations and distortions, which significantly degrade the image quality.
+            Several previous arts have attempted to address different types of aberrations, 
             yet most of them are mainly designed for the traditional bulky lens and not convincing enough to remedy harsh aberrations of the metalens. 
             While there have existed aberration correction methods specifically for metalens, they still fall short of restoration quality. 
             In this work, we propose MetaFormer, an aberration correction framework for metalens-captured images, harnessing Vision Transformers (ViT) that has shown remarkable restoration performance in diverse image restoration tasks. 
