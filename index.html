@@ -470,87 +470,11 @@
   </div>
 </section>
 
-
-
-<!-- first row -->
-<section class="hero is-light is-small">
-  <div class="hero-body second-body">
-    <div class="container">
-      <h3 class="title is-5" style="margin-bottom: 10px;">Real Image Aberration Correction</h3>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/152.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/152.png" alt="After Image" width="100%"></div>
-            
-          </div>
-         
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/1.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/1.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/3.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/3.png" alt="After Image" width="100%"></div>
-          
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/61.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/61.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        
-        <!-- <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><img src="./assets/images/real/input/118.png" alt="Before Image" width="100%"></div>
-            <div class="video"><img src="./assets/images/real/restored/118.png" alt="After Image" width="100%"></div>
-          </div>
-        </div> -->
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/160.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/160.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/136.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/136.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <!-- <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><img src="./assets/images/real/input/172.png" alt="Before Image" width="100%"></div>
-            <div class="video"><img src="./assets/images/real/restored/172.png" alt="After Image" width="100%"></div>
-          </div>
-        </div> -->
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/181.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/181.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/221.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/221.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-      </div>
-  </div>
-</section>
-
 <!-- second row -->
 <section class="hero is-light is-small">
   <div class="hero-body second-body">
     <div class="container">
-      <h3 class="title is-5" style="margin-bottom: 10px;">Synthetic Image Aberration Correction</h3>
+      <h3 class="title is-5" style="margin-bottom: 10px;">Image Aberration Correction</h3>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item">
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
@@ -744,8 +668,98 @@
             The fabricated metalens is shown on the Figure left.
           </p>
         </div>
+        <div class="column">
+          <center>
+            <img src="./assets/images/fig_metalens_imaging_setup.jpg" style="width: 90%;"/>
+          </center>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            An image capture setup is illustrated in this Figure.
+            An optical microscope system was set up to obtain images through the metalens. 
+            The images displayed on a 5.5-inch FHD display were captured using a CMOS camera coupled with a magnification system consisting of a 20x objective lens with 0.5 NA and a tube lens.
+            The metalens was positioned such that its focal plane coincided with the focal plane of the objective lens using a linear motorized stage. 
+            Camera exposure time was adjusted using a white image prior to recording to prevent saturation. 
+            The point spread functions (PSFs) were then acquired using the same setup with 450 nm laser, 532 nm laser, and 635 nm laser for calibration and training of the model.
+            The following shows the restoration results of our model on real captured images with this setup.
+          </p>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- first row -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title is-5" style="margin-bottom: 10px;">Real Image Aberration Correction</h3>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/152.png" alt="Before Image" width="100%"></div>
+            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/152.png" alt="After Image" width="100%"></div>
+            
+          </div>
+         
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/1.png" alt="Before Image" width="100%"></div>
+            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/1.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/3.png" alt="Before Image" width="100%"></div>
+            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/3.png" alt="After Image" width="100%"></div>
+          
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/61.png" alt="Before Image" width="100%"></div>
+            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/61.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        
+        <!-- <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><img src="./assets/images/real/input/118.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/118.png" alt="After Image" width="100%"></div>
+          </div>
+        </div> -->
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/160.png" alt="Before Image" width="100%"></div>
+            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/160.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/136.png" alt="Before Image" width="100%"></div>
+            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/136.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <!-- <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><img src="./assets/images/real/input/172.png" alt="Before Image" width="100%"></div>
+            <div class="video"><img src="./assets/images/real/restored/172.png" alt="After Image" width="100%"></div>
+          </div>
+        </div> -->
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/181.png" alt="Before Image" width="100%"></div>
+            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/181.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/221.png" alt="Before Image" width="100%"></div>
+            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/221.png" alt="After Image" width="100%"></div>
+          </div>
+        </div>
+      </div>
   </div>
 </section>
 

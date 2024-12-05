@@ -222,3 +222,14 @@ body {
 .image-row img {
   height: auto;
 }
+
+#controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#seekBar, #volume {
+  flex: 1;
+}
