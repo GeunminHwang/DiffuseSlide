@@ -585,7 +585,7 @@
       const videos = item.querySelectorAll('video');
   
       if (pauseButton) {
-        pauseButton.style.backgroundImage = "url('assets/images/pause.png')";
+        pauseButton.style.backgroundImage = "url('./assets/images/pause.png')";
         pauseButton.style.backgroundSize = "cover";
         pauseButton.style.backgroundRepeat = "no-repeat";
         pauseButton.style.backgroundPosition = "center";
@@ -597,17 +597,17 @@
         pauseButton.addEventListener('click', () => {
           const isPaused = pauseButton.style.backgroundImage.includes('play.png');
           if (isPaused) {
-            pauseButton.style.backgroundImage = "url('assets/images/pause.png')";
+            pauseButton.style.backgroundImage = "url('./assets/images/pause.png')";
             videos.forEach(video => video.play());
           } else {
-            pauseButton.style.backgroundImage = "url('assets/images/play.png')";
+            pauseButton.style.backgroundImage = "url('./assets/images/play.png')";
             videos.forEach(video => video.pause());
           }
         });
       }
   
       if (fullButton) {
-        fullButton.style.backgroundImage = "url('assets/images/full.png')";
+        fullButton.style.backgroundImage = "url('./assets/images/full.png')";
         fullButton.style.backgroundSize = "cover";
         fullButton.style.backgroundRepeat = "no-repeat";
         fullButton.style.backgroundPosition = "center";
@@ -657,7 +657,7 @@
             }
             if (video.paused) {
               video.play();
-              pauseButton.style.backgroundImage = "url('assets/images/pause.png')";
+              pauseButton.style.backgroundImage = "url('./assets/images/pause.png')";
             }
           });
         } else {
