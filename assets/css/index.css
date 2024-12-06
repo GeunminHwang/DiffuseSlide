@@ -180,6 +180,31 @@ body {
   z-index: 128;
 }
 
+
+.results-carousel .pause {
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  font-size: 20px;
+  padding: 3px 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 128;
+}
+
+.results-carousel .full {
+  background-color: rgba(255, 255, 255, 0);
+  color: #fff;
+  font-size: 20px;
+  padding: 3px 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 128;
+}
+
+
+
 .results-carousel video {
   margin: 0;
 }
@@ -222,17 +247,3 @@ body {
 .image-row img {
   height: auto;
 }
-
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.carousel-controls button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
