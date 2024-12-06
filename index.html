@@ -25,7 +25,35 @@
   <style>
   .hr {width: 100%; height: 1px; margin: 48px 0; background-color: #d6dbdf;}
   </style>
-
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+    th {
+      font-weight: bold;
+      border-bottom: 2px solid black;
+    }
+    td {
+      font-size: 1em;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .top-border {
+      border-top: 2px solid black;
+    }
+    .numeric {
+      font-family: 'Noto-Sans', sans-serif;
+    }
+  </style>
+  
 
   <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,7 +143,7 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- arXiv Link. -->
-              <!-- <span class="link-block">
+              <span class="link-block">
                 <a href="https://arxiv.org/abs/2309.03897" target="_blank"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -124,7 +152,7 @@
                   <span>Paper</span>
                 </a>
               </span>
-              &nbsp; -->
+              &nbsp;
               <!-- Code Link. -->
               <span class="link-block"> 
                 <a href="https://github.com/benhenryL/MetaFormer" target="_blank"
@@ -180,7 +208,6 @@
             </div>
           </div>          
         </div>
-       
         <div class="item">
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
             <div class="video">
@@ -910,8 +937,6 @@
   </div>
 </section>
 
-
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -967,6 +992,193 @@
     </div>
   </div>
 </section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3" style="margin-bottom: 40px;">Qualitative Results</h2>
+        <div class="content has-text-justified">
+          <!-- First and Second Tables in the Same Row -->
+          <div class="columns">
+            <div class="column">
+              <p class="has-text-weight-bold has-text-centered">Image Aberration Correction</p>
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th colspan="3"><a href="https://storage.googleapis.com/openimages/web/index.html">Open Image V7</a></th>
+                  </tr>
+                  <tr>
+                    <th>Method</th>
+                    <th>PSNR&uarr;</th>
+                    <th>SSIM&uarr;</th>
+                    <th>LPIPS&darr;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Wiener deconvolution</td>
+                    <td class="numeric">25.08</td>
+                    <td class="numeric">0.6433</td>
+                    <td class="numeric">0.5164</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://github.com/teboli/fast_two_stage_psf_correction">Eboli et al.</a></td>
+                    <td class="numeric">16.45</td>
+                    <td class="numeric">0.3602</td>
+                    <td class="numeric">0.8929</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://github.com/dongjxjx/dwdn">DWDN</a></td>
+                    <td class="numeric">25.77</td>
+                    <td class="numeric">0.7320</td>
+                    <td class="numeric">0.3333</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://github.com/princeton-computational-imaging/Neural_Nano-Optics">Tseng et al.</a></td>
+                    <td class="numeric">27.56</td>
+                    <td class="numeric">0.7612</td>
+                    <td class="numeric">0.3374</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://github.com/swz30/Restormer">Restormer</a></td>
+                    <td class="numeric">28.92</td>
+                    <td class="numeric">0.7719</td>
+                    <td class="numeric">0.3039</td>
+                  </tr>
+                  <tr>
+                    <td>Ours</td>
+                    <td class="numeric"><strong>32.16</strong></td>
+                    <td class="numeric"><strong>0.8159</strong></td>
+                    <td class="numeric"><strong>0.2810</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="column">
+              <p class="has-text-weight-bold has-text-centered">Video Aberration Correction</p>
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th colspan="3"><a href="https://github.com/shuochsu/DeepVideoDeblurring?tab=readme-ov-file">DVD</a></th>
+                  </tr>
+                  <tr>
+                    <th>Method</th>
+                    <th>PSNR&uarr;</th>
+                    <th>SSIM&uarr;</th>
+                    <th>LPIPS&darr;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://github.com/JingyunLiang/VRT">VRT</a></td>
+                    <td>16.38</td>
+                    <td class="numeric">0.4876</td>
+                    <td class="numeric">0.8058</td>
+                  </tr>
+                  <tr>
+                    <td>VRT + MAFG</td>
+                    <td class="numeric">25.55</td>
+                    <td class="numeric">0.7795</td>
+                    <td class="numeric"><strong>0.2347</strong></td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://github.com/swz30/Restormer">Restormer</a></td>
+                    <td class="numeric">27.47</td>
+                    <td class="numeric">0.7463</td>
+                    <td class="numeric">0.2997</td>
+                  </tr>
+                  <tr>
+                    <td>Ours</td>
+                    <td class="numeric">27.91</td>
+                    <td class="numeric">0.7798</td>
+                    <td class="numeric">0.2892</td>
+                  </tr>
+                  <tr>
+                    <td>VRT <em>w/</em> Ours</td>
+                    <td class="numeric"><strong>28.00</strong></td>
+                    <td class="numeric"><strong>0.8331</strong></td>
+                    <td class="numeric">0.2408</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Third Table -->
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
+            <p class="has-text-weight-bold has-text-centered">3D Reconstruction with Aberrated Images</p>
+            <thead>
+              <tr>
+                <th></th>
+                <th colspan="3"><a href="https://github.com/Fyusion/LLFF">LLFF</a></th>
+                <th colspan="3"><a href="https://www.tanksandtemples.org/">Tanks&Temples</a></th>
+                <th colspan="3"><a href="https://github.com/google-research/multinerf">Mip-NeRF360</a></th>
+              </tr>
+              <tr>
+                <th>Method</th>
+                <th>PSNR&uarr;</th>
+                <th>SSIM&uarr;</th>
+                <th>LPIPS&darr;</th>
+                <th>PSNR&uarr;</th>
+                <th>SSIM&uarr;</th>
+                <th>LPIPS&darr;</th>
+                <th>PSNR&uarr;</th>
+                <th>SSIM&uarr;</th>
+                <th>LPIPS&darr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://github.com/graphdeco-inria/gaussian-splatting">3D-GS</a></td>
+                <td class="numeric">15.34</td>
+                <td class="numeric">0.3037</td>
+                <td class="numeric">0.8706</td>
+                <td class="numeric">14.85</td>
+                <td class="numeric">0.2885</td>
+                <td class="numeric">0.8641</td>
+                <td class="numeric">17.09</td>
+                <td class="numeric">0.3270</td>
+                <td class="numeric">0.8892</td>
+              </tr>
+              <tr>
+                <td>3D-GS <em>w/</em> Ours</td>
+                <td class="numeric">24.07</td>
+                <td class="numeric">0.6961</td>
+                <td class="numeric"><strong>0.2732</strong></td>
+                <td class="numeric">22.25</td>
+                <td class="numeric">0.6362</td>
+                <td class="numeric">0.3259</td>
+                <td class="numeric">25.65</td>
+                <td class="numeric"><strong>0.6406</strong></td>
+                <td class="numeric">0.4244</td>
+              </tr>
+              <tr>
+                <td>3D-GS + Ours</td>
+                <td class="numeric"><strong>24.37</strong></td>
+                <td class="numeric"><strong>0.7009</strong></td>
+                <td class="numeric">0.2867</td>
+                <td class="numeric"><strong>22.40</strong></td>
+                <td class="numeric"><strong>0.6427</strong></td>
+                <td class="numeric"><strong>0.3113</strong></td>
+                <td class="numeric"><strong>25.66</strong></td>
+                <td class="numeric">0.6395</td>
+                <td class="numeric"><strong>0.4201</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            To evaluate the performance of aberration correction tasks across image, video, and 3D reconstruction domains, 
+            we synthesized aberration on existing datasets by applying point spread function to construct aberrated datasets.
+            These tables present the qualitative results of various methods for each task, demonstrating the superior performance of our model.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 <!-- <section class="section" id="BibTeX">
