@@ -51,6 +51,7 @@
     }
     .numeric {
       font-family: 'Noto-Sans', sans-serif;
+      vertical-align: middle;
     }
   </style>
   
@@ -90,50 +91,52 @@
 
           <div style="display: flex; align-items: center; justify-content: center">
             <img src="./assets/images/favicon.png" alt="MetaFormer Logo" style="width: 80px; height: auto; margin-right: 20px; margin-bottom:10px; margin-top:10px">
-            <center>
+            <!-- <center>
             <h1 class="title is-2" style="color: #fb5a42; margin: 0;">
               MetaFormer
             </h1>
-          </center>
-          <img src="./assets/images/favicon.png" alt="MetaFormer Logo" style="width: 80px; height: auto; margin-left: 20px; margin-bottom:10px; margin-top:10px">
+            </center> -->
+            <h1 class="title is-2" style="margin: 0;">  
+              Aberration Correcting Vision Transformers for High-Fidelity Metalens Imaging
+              </h2>
+            <img src="./assets/images/favicon.png" alt="MetaFormer Logo" style="width: 80px; height: auto; margin-left: 20px; margin-bottom:10px; margin-top:10px">
           </div>
-          <h2 class="title is-3">  
-          High-fidelity Metalens Imaging via Aberration Correcting Transformers
-          </h2>
+          
           <div class="is-size-5">
             <span class="author-block">
               Byeonghyeon Lee<sup>1</sup>,</span>
             <span class="author-block">
-              Youbin Kim<sup>1</sup>,</span>
+              Youbin Kim<sup>2</sup>,</span>
             <span class="author-block">
-              Yongjae Jo</a><sup>1</sup>,
+              Yongjae Jo</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              Hyunsu Kim</a><sup>1</sup>,
+              Hyunsu Kim</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              Hyemi Park</a><sup>1</sup>,
+              Hyemi Park</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              Yangkyu Kim</a><sup>1</sup>,
+              Yangkyu Kim</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              Debabrata Mandal</a><sup>2</sup>,
+              Debabrata Mandal</a><sup>3</sup>,
             </span>
             <br>
             <span class="author-block">
-              <a href="https://www.cs.unc.edu/~cpk/">Praneeth Chakravarthula</a><sup>2</sup>,
+              <a href="https://www.cs.unc.edu/~cpk/">Praneeth Chakravarthula</a><sup>3</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.bionanophotonics-skku.com/pi">Inki Kim</a><sup>1</sup>, and </span>
+              <a href="https://www.bionanophotonics-skku.com/pi">Inki Kim</a><sup>2</sup>, and </span>
             </span>
             <span class="author-block">
               <a href="https://silverbottlep.github.io/">Eunbyung Park</a><sup>1</sup>
             </span>
           </div>
           <div class="is-size-5">
-            <span class="author-block"><sup>1</sup>Sungkyunkwan University</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block"><sup>2</sup>University of North Carolina at Chapel Hill</span>
+            <span class="author-block"><sup>1</sup>Yonsei University</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Sungkyunkwan University</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>University of North Carolina at Chapel Hill</span>
           </div>
 
           <!-- <div class="is-size-5 publication-authors">
@@ -804,18 +807,15 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Metalens is an emerging optical system with an irreplaceable merit in that it can be manufactured in ultra-thin and compact sizes, 
-            which shows great promise of various applications such as medical imaging and augmented/virtual reality (AR/VR). 
-            Despite its advantage in miniaturization, its practicality is constrained by severe aberrations and distortions, which significantly degrade the image quality.
-            Several previous arts have attempted to address different types of aberrations, 
-            yet most of them are mainly designed for the traditional bulky lens and not convincing enough to remedy harsh aberrations of the metalens. 
+            Metalens is an emerging optical system with an irreplaceable merit in that it can be manufactured in ultra-thin and compact sizes, which shows great promise in various applications. 
+            Despite its advantage in miniaturization, its practicality is constrained by spatially varying aberrations and distortions, which significantly degrade the image quality. 
+            Several previous arts have attempted to address different types of aberrations, yet most of them are mainly designed for the traditional bulky lens and ineffective to remedy harsh aberrations of the metalens. 
             While there have existed aberration correction methods specifically for metalens, they still fall short of restoration quality. 
-            In this work, we propose MetaFormer, an aberration correction framework for metalens-captured images, harnessing Vision Transformers (ViT) that has shown remarkable restoration performance in diverse image restoration tasks. 
-            Specifically, we devise a Multiple Adaptive Filters Guidance (MAFG), where multiple Wiener filters enrich the degraded input images with various noise-detail balances, enhancing output restoration quality. 
+            In this work, we propose a novel aberration correction framework for metalens-captured images, harnessing Vision Transformers (ViT) that have the potential to restore metalens images with non-uniform aberrations. 
+            Specifically, we devise a Multiple Adaptive Filters Guidance (MAFG), where multiple Wiener filters enrich the degraded input images with various noise-detail balances and a cross-attention module reweights the features considering the different degrees of aberrations. 
             In addition, we introduce a Spatial and Transposed self-Attention Fusion (STAF) module, which aggregates features from spatial self-attention and transposed self-attention modules to further ameliorate aberration correction. 
-            We conduct extensive experiments, including correcting aberrated images and videos, and clean 3D reconstruction from the degraded images. 
-            The proposed method outperforms the previous arts by a significant margin. 
-            We further fabricate a metalens and verify the practicality of MetaFormer by restoring the images captured with the manufactured metalens in the wild.
+            We conduct extensive experiments, including correcting aberrated images and videos, and clean 3D reconstruction. 
+            The proposed method outperforms the previous arts by a significant margin. We further fabricate a metalens and verify the practicality of our method by restoring the images captured with the manufactured metalens.
           </p>
         </div>
       </div>
@@ -867,7 +867,7 @@
             The metalens was positioned such that its focal plane coincided with the focal plane of the objective lens using a linear motorized stage. 
             Camera exposure time was adjusted using a white image prior to recording to prevent saturation. 
             The point spread functions (PSFs) were then acquired using the same setup with 450 nm laser, 532 nm laser, and 635 nm laser for calibration and training of the model.
-            The following images show the restoration results of MetaFormer on the real images captured with the fabricated metalens under this setup.
+            The following images show the restoration results of our model on the real images captured with the fabricated metalens under this setup.
           </p>
         </div>
       </div>
@@ -983,7 +983,7 @@
             <img src="./assets/images/fig_architecture.jpg" />
           </div>
           <p>
-            MetaFormer comprises Multiple Adaptive Filters Guidance (MAFG) which produces different representations
+            Our model comprises Multiple Adaptive Filters Guidance (MAFG) which produces different representations
             with various noise-detail balances, and a Spatial and Transposed self-Attention Fusion (STAF) module that aggregates features differently
             in encoder and decoder.
           </p>
@@ -1034,66 +1034,250 @@
       <div class="column">
         <h2 class="title is-3" style="margin-bottom: 40px;">Quantitative Results</h2>
         <div class="content has-text-justified">
-          <!-- First and Second Tables in the Same Row -->
-          <div class="columns">
-            <div class="column">
-              <p class="has-text-weight-bold has-text-centered">Image Aberration Correction</p>
-              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
+          <p class="has-text-weight-bold has-text-centered">Image Aberration Correction</p>
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px; max-width: 60%; margin-left: auto; margin-right: auto;">
                 <thead>
-                  <tr>
-                    <th></th>
-                    <th colspan="3"><a href="https://storage.googleapis.com/openimages/web/index.html">Open Image V7</a></th>
-                  </tr>
-                  <tr>
-                    <th>Method</th>
-                    <th>PSNR&uarr;</th>
-                    <th>SSIM&uarr;</th>
-                    <th>LPIPS&darr;</th>
-                  </tr>
+                    <tr>
+                        <th rowspan="2" style="vertical-align: middle;">Method</th>
+                        <th colspan="3">Non-uniform Aberration</th>
+                    </tr>
+                    <tr>
+                        <th>PSNR↑</th>
+                        <th>SSIM↑</th>
+                        <th>LPIPS↓</th>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Wiener deconvolution</td>
-                    <td class="numeric">25.08</td>
-                    <td class="numeric">0.6433</td>
-                    <td class="numeric">0.5164</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/teboli/fast_two_stage_psf_correction">Eboli et al.</a></td>
-                    <td class="numeric">16.45</td>
-                    <td class="numeric">0.3602</td>
-                    <td class="numeric">0.8929</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/dongjxjx/dwdn">DWDN</a></td>
-                    <td class="numeric">25.77</td>
-                    <td class="numeric">0.7320</td>
-                    <td class="numeric">0.3333</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/princeton-computational-imaging/Neural_Nano-Optics">Tseng et al.</a></td>
-                    <td class="numeric">27.56</td>
-                    <td class="numeric">0.7612</td>
-                    <td class="numeric">0.3374</td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/swz30/Restormer">Restormer</a></td>
-                    <td class="numeric">28.92</td>
-                    <td class="numeric">0.7719</td>
-                    <td class="numeric">0.3039</td>
-                  </tr>
-                  <tr>
-                    <td>Ours</td>
-                    <td class="numeric"><strong>32.16</strong></td>
-                    <td class="numeric"><strong>0.8159</strong></td>
-                    <td class="numeric"><strong>0.2810</strong></td>
-                  </tr>
+                    <tr>
+                        <td>Wiener deconvolution</td>
+                        <td class="numeric">25.54</td>
+                        <td class="numeric">0.5743</td>
+                        <td class="numeric">0.5228</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/teboli/fast_two_stage_psf_correction">Eboli et al.</a></td>
+                        <td class="numeric">15.19</td>
+                        <td class="numeric">0.3784</td>
+                        <td class="numeric">0.8270</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/VITA-Group/DeblurGANv2">DeblurGANv2</a></td>
+                        <td class="numeric">24.08</td>
+                        <td class="numeric">0.6863</td>
+                        <td class="numeric">0.3233</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/dongjxjx/dwdn">DWDN</a></td>
+                        <td class="numeric">26.40</td>
+                        <td class="numeric">0.7656</td>
+                        <td class="numeric">0.2854</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/princeton-computational-imaging/Neural_Nano-Optics">Tseng et al.</a></td>
+                        <td class="numeric">28.66</td>
+                        <td class="numeric">0.8045</td>
+                        <td class="numeric">0.2949</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/swz30/Restormer">Restormer</a></td>
+                        <td class="numeric">27.84</td>
+                        <td class="numeric">0.8091</td>
+                        <td class="numeric">0.2753</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/swz30/Restormer">Restormer</a> + SWF (Single Wiener Filter)</td>
+                        <td class="numeric">29.87</td>
+                        <td class="numeric">0.8289</td>
+                        <td class="numeric">0.2812</td>
+                    </tr>
+                    <tr>
+                        <td>Ours</td>
+                        <td class="numeric"><strong>34.29</strong></td>
+                        <td class="numeric"><strong>0.8760</strong></td>
+                        <td class="numeric"><strong>0.2052</strong></td>
+                    </tr>
                 </tbody>
-              </table>
-            </div>
-            <div class="column">
-              <p class="has-text-weight-bold has-text-centered">Video Aberration Correction</p>
+            </table>
               <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
+                <thead>
+                    <tr>
+                        <th rowspan="3" style="vertical-align: middle; min-width: 300px;">Method</th>
+                        <th colspan="15">Uniform Aberration</th>
+                    </tr> 
+                    <tr>
+                        <th colspan="3" class="numeric">θ = 0°</th>
+                        <th colspan="3" class="numeric">θ = 5°</th>
+                        <th colspan="3" class="numeric">θ = 10°</th>
+                        <th colspan="3" class="numeric">θ = 15°</th>
+                        <th colspan="3" class="numeric">θ = 20°</th>
+                    </tr>
+
+                    <tr>
+                        <th>PSNR↑</th>
+                        <th>SSIM↑</th>
+                        <th>LPIPS↓</th>
+                        <th>PSNR↑</th>
+                        <th>SSIM↑</th>
+                        <th>LPIPS↓</th>
+                        <th>PSNR↑</th>
+                        <th>SSIM↑</th>
+                        <th>LPIPS↓</th>
+                        <th>PSNR↑</th>
+                        <th>SSIM↑</th>
+                        <th>LPIPS↓</th>
+                        <th>PSNR↑</th>
+                        <th>SSIM↑</th>
+                        <th>LPIPS↓</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wiener deconvolution</td>
+                        <td class="numeric">27.06</td>
+                        <td class="numeric">0.6561</td>
+                        <td class="numeric">0.4458</td>
+                        <td class="numeric">27.14</td>
+                        <td class="numeric">0.6653</td>
+                        <td class="numeric">0.4316</td>
+                        <td class="numeric">26.72</td>
+                        <td class="numeric">0.6455</td>
+                        <td class="numeric">0.4661</td>
+                        <td class="numeric">26.61</td>
+                        <td class="numeric">0.6479</td>
+                        <td class="numeric">0.4656</td>
+                        <td class="numeric">26.05</td>
+                        <td class="numeric">0.6332</td>
+                        <td class="numeric">0.5030</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/teboli/fast_two_stage_psf_correction">Eboli et al.</a></td>
+                        <td class="numeric">20.73</td>
+                        <td class="numeric">0.5359</td>
+                        <td class="numeric">0.6488</td>
+                        <td class="numeric">20.75</td>
+                        <td class="numeric">0.5363</td>
+                        <td class="numeric">0.6560</td>
+                        <td class="numeric">20.36</td>
+                        <td class="numeric">0.5172</td>
+                        <td class="numeric">0.6909</td>
+                        <td class="numeric">19.40</td>
+                        <td class="numeric">0.4794</td>
+                        <td class="numeric">0.7512</td>
+                        <td class="numeric">18.55</td>
+                        <td class="numeric">0.4480</td>
+                        <td class="numeric">0.7973</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/VITA-Group/DeblurGANv2">DeblurGANv2</a></td>
+                        <td class="numeric">25.27</td>
+                        <td class="numeric">0.7338</td>
+                        <td class="numeric">0.3032</td>
+                        <td class="numeric">25.18</td>
+                        <td class="numeric">0.7286</td>
+                        <td class="numeric">0.3041</td>
+                        <td class="numeric">24.51</td>
+                        <td class="numeric">0.7025</td>
+                        <td class="numeric">0.3335</td>
+                        <td class="numeric">23.53</td>
+                        <td class="numeric">0.6599</td>
+                        <td class="numeric">0.4036</td>
+                        <td class="numeric">21.79</td>
+                        <td class="numeric">0.6048</td>
+                        <td class="numeric">0.4810</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/dongjxjx/dwdn">DWDN</a></td>
+                        <td class="numeric">29.38</td>
+                        <td class="numeric">0.8318</td>
+                        <td class="numeric">0.2459</td>
+                        <td class="numeric">29.04</td>
+                        <td class="numeric">0.8256</td>
+                        <td class="numeric">0.2505</td>
+                        <td class="numeric">27.99</td>
+                        <td class="numeric">0.8010</td>
+                        <td class="numeric">0.2691</td>
+                        <td class="numeric">27.09</td>
+                        <td class="numeric">0.7763</td>
+                        <td class="numeric">0.2969</td>
+                        <td class="numeric">25.68</td>
+                        <td class="numeric">0.7282</td>
+                        <td class="numeric">0.3267</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/princeton-computational-imaging/Neural_Nano-Optics">Tseng et al.</a></td>
+                        <td class="numeric">29.88</td>
+                        <td class="numeric">0.8373</td>
+                        <td class="numeric">0.2507</td>
+                        <td class="numeric">29.91</td>
+                        <td class="numeric">0.8366</td>
+                        <td class="numeric">0.2513</td>
+                        <td class="numeric">29.59</td>
+                        <td class="numeric">0.8213</td>
+                        <td class="numeric">0.2587</td>
+                        <td class="numeric">29.14</td>
+                        <td class="numeric">0.8141</td>
+                        <td class="numeric">0.2701</td>
+                        <td class="numeric">28.09</td>
+                        <td class="numeric">0.7841</td>
+                        <td class="numeric">0.3117</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/swz30/Restormer">Restormer</a></td>
+                        <td class="numeric">31.09</td>
+                        <td class="numeric">0.8827</td>
+                        <td class="numeric">0.1804</td>
+                        <td class="numeric">30.21</td>
+                        <td class="numeric">0.8654</td>
+                        <td class="numeric">0.1956</td>
+                        <td class="numeric">31.51</td>
+                        <td class="numeric">0.8671</td>
+                        <td class="numeric">0.2045</td>
+                        <td class="numeric">30.98</td>
+                        <td class="numeric">0.8526</td>
+                        <td class="numeric">0.2202</td>
+                        <td class="numeric">28.53</td>
+                        <td class="numeric">0.8020</td>
+                        <td class="numeric">0.2871</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/swz30/Restormer">Restormer</a> + SWF</td>
+                        <td class="numeric">33.58</td>
+                        <td class="numeric">0.8804</td>
+                        <td class="numeric">0.2003</td>
+                        <td class="numeric">33.07</td>
+                        <td class="numeric">0.8672</td>
+                        <td class="numeric">0.2227</td>
+                        <td class="numeric">32.10</td>
+                        <td class="numeric">0.8434</td>
+                        <td class="numeric">0.2504</td>
+                        <td class="numeric">31.21</td>
+                        <td class="numeric">0.8337</td>
+                        <td class="numeric">0.2630</td>
+                        <td class="numeric">28.95</td>
+                        <td class="numeric">0.7908</td>
+                        <td class="numeric">0.3262</td>
+                    </tr>
+                    <tr>
+                        <td>Ours</td>
+                        <td class="numeric"><strong>35.06</strong></td>
+                        <td class="numeric"><strong>0.8961</strong></td>
+                        <td class="numeric"><strong>0.1763</strong></td>
+                        <td class="numeric"><strong>34.83</strong></td>
+                        <td class="numeric"><strong>0.8904</strong></td>
+                        <td class="numeric"><strong>0.1795</strong></td>
+                        <td class="numeric"><strong>34.39</strong></td>
+                        <td class="numeric"><strong>0.8788</strong></td>
+                        <td class="numeric"><strong>0.1979</strong></td>
+                        <td class="numeric"><strong>34.05</strong></td>
+                        <td class="numeric"><strong>0.8708</strong></td>
+                        <td class="numeric"><strong>0.2070</strong></td>
+                        <td class="numeric"><strong>32.32</strong></td>
+                        <td class="numeric"><strong>0.8409</strong></td>
+                        <td class="numeric"><strong>0.2542</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+          <p class="has-text-weight-bold has-text-centered">Video Aberration Correction</p>
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px; max-width: 60%; margin-left: auto; margin-right: auto;">
                 <thead>
                   <tr>
                     <th></th>
@@ -1109,40 +1293,23 @@
                 <tbody>
                   <tr>
                     <td><a href="https://github.com/JingyunLiang/VRT">VRT</a></td>
-                    <td>16.38</td>
-                    <td class="numeric">0.4876</td>
-                    <td class="numeric">0.8058</td>
-                  </tr>
-                  <tr>
-                    <td>VRT + MAFG</td>
-                    <td class="numeric">25.55</td>
-                    <td class="numeric">0.7795</td>
-                    <td class="numeric"><strong>0.2347</strong></td>
-                  </tr>
-                  <tr>
-                    <td><a href="https://github.com/swz30/Restormer">Restormer</a></td>
-                    <td class="numeric">27.47</td>
-                    <td class="numeric">0.7463</td>
-                    <td class="numeric">0.2997</td>
-                  </tr>
-                  <tr>
-                    <td>Ours</td>
-                    <td class="numeric">27.91</td>
-                    <td class="numeric">0.7798</td>
-                    <td class="numeric">0.2892</td>
+                    <td class="numeric">23.23</td>
+                    <td class="numeric">0.6906</td>
+                    <td class="numeric">0.3921</td>
                   </tr>
                   <tr>
                     <td>VRT <em>w/</em> Ours</td>
-                    <td class="numeric"><strong>28.00</strong></td>
-                    <td class="numeric"><strong>0.8331</strong></td>
-                    <td class="numeric">0.2408</td>
+                    <td class="numeric"><strong>28.89</strong></td>
+                    <td class="numeric"><strong>0.8602</strong></td>
+                    <td class="numeric">0.2102</td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </div>
+            
+
+
           <!-- Third Table -->
-          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px; max-width: 60%; margin-left: auto; margin-right: auto;">
             <p class="has-text-weight-bold has-text-centered">3D Reconstruction with Aberrated Images</p>
             <thead>
               <tr>
@@ -1167,27 +1334,27 @@
             <tbody>
               <tr>
                 <td><a href="https://github.com/graphdeco-inria/gaussian-splatting">3D-GS</a></td>
-                <td class="numeric">15.34</td>
-                <td class="numeric">0.3037</td>
-                <td class="numeric">0.8706</td>
-                <td class="numeric">14.85</td>
-                <td class="numeric">0.2885</td>
-                <td class="numeric">0.8641</td>
-                <td class="numeric">17.09</td>
-                <td class="numeric">0.3270</td>
-                <td class="numeric">0.8892</td>
+                <td class="numeric">17.43</td>
+                <td class="numeric">0.4083</td>
+                <td class="numeric">0.7428</td>
+                <td class="numeric">16.81</td>
+                <td class="numeric">0.3875</td>
+                <td class="numeric">0.7263</td>
+                <td class="numeric">19.58</td>
+                <td class="numeric">0.3857</td>
+                <td class="numeric">0.8166</td>
               </tr>
               <tr>
                 <td>3D-GS + Ours</td>
-                <td class="numeric"><strong>24.37</strong></td>
-                <td class="numeric"><strong>0.7009</strong></td>
-                <td class="numeric"><strong>0.2867</strong></td>
-                <td class="numeric"><strong>22.40</strong></td>
-                <td class="numeric"><strong>0.6427</strong></td>
-                <td class="numeric"><strong>0.3113</strong></td>
-                <td class="numeric"><strong>25.66</strong></td>
-                <td class="numeric"><strong>0.6395</strong></td>
-                <td class="numeric"><strong>0.4201</strong></td>
+                <td class="numeric"><strong>25.29</strong></td>
+                <td class="numeric"><strong>0.7513</strong></td>
+                <td class="numeric"><strong>0.2138</strong></td>
+                <td class="numeric"><strong>23.17</strong></td>
+                <td class="numeric"><strong>0.6852</strong></td>
+                <td class="numeric"><strong>0.2639</strong></td>
+                <td class="numeric"><strong>25.94</strong></td>
+                <td class="numeric"><strong>0.6676</strong></td>
+                <td class="numeric"><strong>0.3693</strong></td>
               </tr>
             </tbody>
           </table>
