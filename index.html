@@ -990,13 +990,16 @@
             We propose to use multiple Wiener filters to guide aberration correction with several distinct representations.
             It is not feasible to obtain an optimal Wiener filter with accurate SNR as noise distribution is unknown in the real world.
             Instead of estimating the noise distribution, we adopt multiple Wiener filters with different \( K \).
-            We use \( M \) Wiener filters and deconvolve the input image to yield \( M \) different representations—some focused on noise removal, others with fine information.
+            Such design can approximate the ideal filter by employing \( M \) filters with different \( K \) in a wide range.
             Various representations are fed to the restoration model, and they can enrich the features complementarily, which in turn improves aberration correction.
             <br>
             We extend multiple Wiener filters to Multiple Adaptive Filters Guidance (MAFG), which determines \( K \) adaptively considering the image intensity.
             Image with higher intensity tends to have better signal quality, so brighter channels often experience less noise and are less sensitive to noise. 
             Thus, we penalize noise less and capture more information for bright images by adjusting \( K \) with the image intensity. 
-            Also, we treat each channel differently to avoid suppressing high-SNR details unnecessarily.
+            Also, we treat each channel differently to avoid suppressing high-SNR details unnecessarily, since metalens exhibit wavelength-dependent aberrations where each color channel suffers differently due to the chromatic responses.
+            <br>
+            To dynamically integrate these diverse representations, we employ a cross-attention module that reweights the filtered features according to their relevance to the median representation.
+            This enables spatially adaptive correction, guiding the restoration network with features emphasized based on the severity of local aberration.
           </p>
           <br>
           <h4 class="title is-5" style="margin-bottom: 10px;">Spatial and Transposed self-Attention Fusion (STAF)</h4>
