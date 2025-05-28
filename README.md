@@ -1,4 +1,4 @@
-# DiffuseSlide
+# DiffuseSlide: Training-Free High Frame Rate Video Generation Diffusion
 
 ## Environment
 #### Python 3.10.15
