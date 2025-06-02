@@ -5,8 +5,7 @@
   <!-- <meta name="description" content="ProPainter for Video Inpainting">
   <meta name="keywords" content="ProPainter, Video Inpainting, Video Completion, Watermark Removal, Temporal Propogation">
   <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-  <title>Aberration Correcting Vision Transformers for High-Fidelity Metalens Imaging</title>
-  <link rel="icon" href="./assets/images/favicon.png" type="image/png">
+  <title>DiffuseSlide: Training-Free High Frame Rate Video Generation Diffusion</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <!--   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -86,49 +85,30 @@
         <div class="column has-text-centered head">
 
           <div style="display: flex; align-items: center; justify-content: center">
-            <img src="./assets/images/favicon.png" alt="Metalens-Transformer Logo" style="width: 80px; height: auto; margin-right: 20px; margin-bottom:10px; margin-top:10px">
-
             <h1 class="title is-2" style="margin: 0;">  
-              Aberration Correcting Vision Transformers for High-Fidelity Metalens Imaging
-              </h2>
-            <img src="./assets/images/favicon.png" alt="Metalens-Transformer Logo" style="width: 80px; height: auto; margin-left: 20px; margin-bottom:10px; margin-top:10px">
+              DiffuseSlide: Training-Free High Frame Rate Video Generation Diffusion
+            </h2>
           </div>
           
           <div class="is-size-5">
             <span class="author-block">
-              Byeonghyeon Lee<sup>1</sup>,</span>
+              <a href="https://github.com/GeunminHwang/">Geunmin Hwang</a><sup>1</sup>,</span>
             <span class="author-block">
-              Youbin Kim<sup>2</sup>,</span>
+              <a href="https://github.com/Ko-Lani/">Hyun-kyu Ko</a><sup>3</sup>,</span>
             <span class="author-block">
-              Yongjae Jo</a><sup>2</sup>,
+              <a href="https://github.com/yhyun225/">Younghyun Kim</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              Hyunsu Kim</a><sup>2</sup>,
+              <a href="https://github.com/twowindragon">Seungryong Lee</a><sup>3</sup>,
             </span>
             <span class="author-block">
-              Hyemi Park</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              Yangkyu Kim</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              Debabrata Mandal</a><sup>3</sup>,
-            </span>
-            <br>
-            <span class="author-block">
-              <a href="https://www.cs.unc.edu/~cpk/">Praneeth Chakravarthula</a><sup>3</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.bionanophotonics-skku.com/pi">Inki Kim</a><sup>2</sup>, and </span>
-            </span>
-            <span class="author-block">
-              <a href="https://silverbottlep.github.io/">Eunbyung Park</a><sup>1</sup>
+              <a href="https://silverbottlep.github.io/">Eunbyung Park</a><sup>2</sup><br>
             </span>
           </div>
           <div class="is-size-5">
-            <span class="author-block"><sup>1</sup>Yonsei University</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block"><sup>2</sup>Sungkyunkwan University</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="author-block"><sup>3</sup>University of North Carolina at Chapel Hill</span>
+            <span class="author-block"><sup>1</sup>RECON Labs Inc.</span><br>
+            <span class="author-block"><sup>2</sup>Department of Artificial Intelligence, Yonsei University</span><br>
+            <span class="author-block"><sup>3</sup>Department of Electrical and Computer Engineering, Sungkyunkwan University</span>
           </div>
 
           <!-- <div class="is-size-5 publication-authors">
@@ -178,174 +158,183 @@
   </div>
 </section>
 
+<!-- First row -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+      <!-- <div class="column"> -->
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advancements in diffusion models have revolutionized video generation, enabling the creation of high-quality, temporally consistent videos. However, generating high frame-rate (FPS) videos remains a significant challenge due to issues such as flickering and degradation in long sequences, particularly in fast-motion scenarios. 
+            Existing methods often suffer from computational inefficiencies and limitations in maintaining video quality over extended frames. 
+            In this paper, we present a novel, training-free approach for high FPS video generation using pre-trained diffusion models. 
+            Our method, DiffuseSlide, introduces a new pipeline that leverages key frames from low FPS videos and applies innovative techniques, including noise re-injection and sliding window latent denoising, to achieve smooth, consistent video outputs without the need for additional fine-tuning. 
+            Through extensive experiments, we demonstrate that our approach significantly improves video quality, offering enhanced temporal coherence and spatial fidelity. 
+            The proposed method is not only computationally efficient but also adaptable to various video generation tasks, making it ideal for applications such as virtual reality, video games, and high-quality content creation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
 
-<section class="section"  style="margin-top: 0px; padding-top: 0px" >
-  <div class="container is-max-desktop"  style="margin-top: 0px;">
-    <center>
-      <h2 class="title is-3" style="margin-bottom: 10px;">Compact and Tiny Lens, Metalens</h2>
-    </center>    
-    <div class="columns is-centered has-text-centered"  style="margin-top: 0px;">
-      <div class="column"  style="margin-top: 0px;">
-        <!-- <h2 class="title is-3">Metalens size</h2> -->
-        <div class="content has-text-justified"  style="margin-top: 0px;">
-          <div class="column">
-            <center>
-            <img src="./assets/images/fig_lens_comparison.jpg" style="width: 70%;"/>
-            </center>
+<!-- Second row -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Overall Pipeline</h2>
+        <div class="content has-text-justified">
+          <!-- Overview Pipeline Image -->
+          <div class="column" style="text-align: center;">
+            <img src="./assets/images/pipeline.jpg" style="width: 100%; margin-bottom: 1rem;" />
           </div>
+
+          <p>
+            DiffuseSlide is a training-free, high frame-rate video generation pipeline based on pre-trained image-to-video diffusion models.
+            It consists of three stages: latent interpolation, noise re-injection, and sliding window denoising.
+            This pipeline enables the production of smooth and temporally coherent videos without additional training.
+          </p>
+
+          <br>
+
+          <!-- Two-column layout -->
+          <div class="columns is-variable is-6">
+            <!-- Left Column: Noise Re-Injection -->
+            <div class="column">
+              <h4 class="title is-5">Noise Re-Injection</h4>
+              <div style="text-align: center;">
+                <img src="./assets/images/Noise Re-Injection.jpg" style="width: 90%; margin-bottom: 0.75rem;" />
+              </div>
+              <p>
+                We apply a multi-step <strong>noise re-injection</strong> process to refine interpolated latent frames.
+                Interpolated latents often contain artifacts due to naive averaging. To address this, we inject Gaussian noise at intermediate steps, followed by denoising.
+                This alternating process of noise and denoise helps recover details and align results with the smooth video manifold.
+                It prevents the model from being stuck in suboptimal reconstructions and enhances both spatial detail and temporal consistency.
+              </p>
+            </div>
+
+            <!-- Right Column: Sliding Window -->
+            <div class="column">
+              <h4 class="title is-5">Sliding Window<br>for Multi-Image Conditioning</h4>
+              <div style="text-align: center;">
+                <img src="./assets/images/sw.jpg" style="width: 90%; margin-bottom: 0.75rem;" />
+              </div>
+              <p>
+                Pre-trained image-to-video models have limited sequence capacity. To overcome this, we use a <strong>sliding window denoising</strong> method.
+                The extended latent sequence is divided into overlapping subsequences. Each is denoised independently, conditioned on its corresponding keyframe.
+                This allows multi-image conditioning throughout the sequence, reducing flicker and enabling consistent alignment with keyframes over longer videos.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- First row -->
+<!-- Third row -->
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-      <h3 class="title is-5" style="margin-bottom: 10px;">Video Aberration Correction</h3>
+      <h3 class="title is-5" style="margin-bottom: 10px;">Comparison with Origin Video</h3>
       <div id="results-carousel" class="carousel results-carousel">
         
         <div class="item">
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
             <div class="video">
-              <div class="desc_left">VRT</div>
+              <div class="desc_left">Origin</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0021_vrt_nocap.mp4" type="video/mp4">
+                <source src="./assets/videos/Origin/sword_origin.mp4" type="video/mp4">
               </video>
             </div>
             <div class="video">
-              <div class="desc">Ours</div>
+              <div class="desc">DiffuseSlide</div>
               <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
               <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0021_ours_meta_nocap.mp4" type="video/mp4">
+                <source src="./assets/videos/DiffuseSlide/sword_DiffuseSlide_4x.mp4" type="video/mp4">
               </video>
             </div>
           </div>
         </div>
+        
         <div class="item">
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
             <div class="video">
-              <div class="desc_left">VRT</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0030_vrt_nocap.mp4" type="video/mp4"></video> 
+              <div class="desc_left">Origin</div>
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/Origin/house_origin.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="video">
-              <div class="desc">Ours</div>
+              <div class="desc">DiffuseSlide</div>
               <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
               <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0030_ours_meta_nocap.mp4" type="video/mp4">
+                <source src="./assets/videos/DiffuseSlide/house_DiffuseSlide_4x.mp4" type="video/mp4">
               </video>
             </div>
           </div>
         </div>
+
         <div class="item">
           <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
             <div class="video">
-              <div class="desc_left">VRT</div>
+              <div class="desc_left">Origin</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0003_vrt_nocap.mp4" type="video/mp4">
+                <source src="./assets/videos/Origin/robot_origin.mp4" type="video/mp4">
               </video>
             </div>
             <div class="video">
-              <div class="desc">Ours</div>
+              <div class="desc">DiffuseSlide</div>
               <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
               <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0003_ours_meta_nocap.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>          
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
-            <div class="video">
-              <div class="desc_left">VRT</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0031_vrt_nocap.mp4" type="video/mp4"></video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0031_ours_meta_nocap.mp4" type="video/mp4"></video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
-            <div class="video">
-              <div class="desc_left">VRT</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0032_vrt_nocap.mp4" type="video/mp4"></video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0032_ours_meta_nocap.mp4" type="video/mp4"></video>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
-            <div class="video">
-              <div class="desc_left">VRT</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0033_vrt_nocap.mp4" type="video/mp4"></video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0033_ours_meta_nocap.mp4" type="video/mp4"></video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
-            <div class="video">
-              <div class="desc_left">VRT</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0037_vrt_nocap.mp4" type="video/mp4"></video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video class="lazy" preload="none" muted loop="loop" width="100%" data-src="./assets/videos/DVD/IMG_0037_ours_meta_nocap.mp4" type="video/mp4"></video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
-            <div class="video">
-              <div class="desc_left">VRT</div>
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0039_vrt_nocap.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/IMG_0039_ours_meta_nocap.mp4" type="video/mp4">
+                <source src="./assets/videos/DiffuseSlide/robot_DiffiseSlide.mp4" type="video/mp4">
               </video>
             </div>
           </div>
         </div>
-        <!-- <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
             <div class="video">
+              <div class="desc_left">Origin</div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/720p_240fps_2_vrt.mp4" type="video/mp4">
-              </video> 
+                <source src="./assets/videos/Origin/soldier_origin.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="video">
+              <div class="desc">DiffuseSlide</div>
+              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
               <video muted autoplay="autoplay" loop="loop" width="100%">
-                <source src="./assets/videos/DVD/720p_240fps_2_ours.mp4" type="video/mp4">
-              </video> 
+                <source src="./assets/videos/DiffuseSlide/soldier_DiffuseSlide.mp4" type="video/mp4">
+              </video>
             </div>
           </div>
-        </div> -->
+        </div>
+
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">            
+            <div class="video">
+              <div class="desc_left">Origin</div>
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/Origin/dragon_origin.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video">
+              <div class="desc">DiffuseSlide</div>
+              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
+              <video muted autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/DiffuseSlide/dragon_DiffuseSlide.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -355,261 +344,84 @@
 <section class="hero is-light is-small">
   <div class="hero-body second-body">
     <div class="container">
-      <h3 class="title is-5" style="margin-bottom: 10px;">3D Reconstruction with Aberrated Images</h3>
+      <h3 class="title is-5" style="margin-bottom: 10px;">Comparison with Linear Interpolation</h3>
       <div id="results-carousel" class="carousel results-carousel">
+        
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
             <div class="video">
-              <div class="desc_left">3D-GS</div>
+              <div class="desc_left">L.I</div>
               <video autoplay="autoplay" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/llff/flower_gs.mp4" type="video/mp4">
+                <source src="./assets/videos/LinearInterpol/DarthVader_LinearInterpolation.mp4" type="video/mp4">
               </video> 
             </div>
             <div class="video">
-              <div class="desc">Ours</div>
+              <div class="desc">DiffuseSlide</div>
               <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
               <video autoplay="autoplay" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/llff/flower_ours.mp4" type="video/mp4">
+                <source src="./assets/videos/DiffuseSlide/DarthVader_DiffuseSlide_4x.mp4" type="video/mp4">
               </video> 
             </div>
           </div>
         </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video autoplay="autoplay" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/llff/leaves_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video autoplay="autoplay" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/llff/leaves_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video autoplay="autoplay" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/llff/horns_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video autoplay="autoplay" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/llff/horns_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/llff/room_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/llff/room_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>  
-        <!-- <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.56">
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/tanksandtemples/train_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/tanksandtemples/train_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.56">
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/tanksandtemples/truck_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/tanksandtemples/truck_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div> -->
-              
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/360/kitchen_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/360/kitchen_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/360/garden_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/360/garden_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>  
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/360/bonsai_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video class="lazy" preload="none" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/360/bonsai_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>  
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video">
-              <div class="desc_left">3D-GS</div>
-              <video autoplay="autoplay" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/360/counter_gs.mp4" type="video/mp4">
-              </video> 
-            </div>
-            <div class="video">
-              <div class="desc">Ours</div>
-              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
-              <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-              <video autoplay="autoplay" muted loop="loop" width="100%">
-                <source src="./assets/videos/3d-gs/360/counter_ours.mp4" type="video/mp4">
-              </video> 
-            </div>
-          </div>
-        </div>  
-  </div>
-</section>
 
-<!-- Third row -->
-<section class="hero is-light is-small">
-  <div class="hero-body second-body">
-    <div class="container">
-      <h3 class="title is-5" style="margin-bottom: 10px;">Image Aberration Correction</h3>
-      <div id="results-carousel" class="carousel results-carousel">
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/synthetic/input/00bcc6e639a97904_Input.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/synthetic/restored/00bcc6e639a97904_Ours.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/synthetic/input/6ec2767c66e7892e_Input.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/synthetic/restored/6ec2767c66e7892e_Ours.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/synthetic/input/d6cdf9bc77c52025_Input.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/synthetic/restored/d6cdf9bc77c52025_Ours.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>       
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/synthetic/input/5f2034e1872a519a_Input.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/synthetic/restored/5f2034e1872a519a_Ours.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/synthetic/input/7428c32228eff71a_Input.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/synthetic/restored/7428c32228eff71a_Ours.png" alt="After Image" width="100%"></div>
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video">
+              <div class="desc_left">L.I</div>
+              <video autoplay="autoplay" muted loop="loop" width="100%">
+                <source src="./assets/videos/LinearInterpol/RobotAngel_LinearInterpolation.mp4" type="video/mp4">
+              </video> 
+            </div>
+            <div class="video">
+              <div class="desc">DiffuseSlide</div>
+              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
+              <video autoplay="autoplay" muted loop="loop" width="100%">
+                <source src="./assets/videos/DiffuseSlide/RobotAngel_DiffuseSlide.mp4" type="video/mp4">
+              </video> 
+            </div>
           </div>
         </div>
         
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/synthetic/input/7df989f304030a06_Input.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/synthetic/restored/7df989f304030a06_Ours.png" alt="After Image" width="100%"></div>
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video">
+              <div class="desc_left">L.I</div>
+              <video autoplay="autoplay" muted loop="loop" width="100%">
+                <source src="./assets/videos/LinearInterpol/crystal_LinearInterpolation.mp4" type="video/mp4">
+              </video> 
+            </div>
+            <div class="video">
+              <div class="desc">DiffuseSlide</div>
+              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
+              <video autoplay="autoplay" muted loop="loop" width="100%">
+                <source src="./assets/videos/DiffuseSlide/crystal_DiffuseSlide.mp4" type="video/mp4">
+              </video> 
+            </div>
           </div>
         </div>
 
+        <div class="item">
+          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+            <div class="video">
+              <div class="desc_left">L.I</div>
+              <video autoplay="autoplay" muted loop="loop" width="100%">
+                <source src="./assets/videos/LinearInterpol/astronaut_LinearInterpolation.mp4" type="video/mp4">
+              </video> 
+            </div>
+            <div class="video">
+              <div class="desc">DiffuseSlide</div>
+              <div class="pause" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div>
+              <video autoplay="autoplay" muted loop="loop" width="100%">
+                <source src="./assets/videos/DiffuseSlide/astronaut_DiffuseSlide.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div>
+        </div>
 
-       
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/synthetic/input/19aa0e0ad2fa06b6_Input.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/synthetic/restored/19aa0e0ad2fa06b6_Ours.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/synthetic/input/8fe1f7dff5acb6f7_Input.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/synthetic/restored/8fe1f7dff5acb6f7_Ours.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-      </div>
   </div>
 </section>
+
 
 
 <script>
@@ -670,8 +482,6 @@
   
   
 </script>
-
-
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -784,163 +594,6 @@
   });
 </script>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-      <!-- <div class="column"> -->
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Metalens is an emerging optical system with an irreplaceable merit in that it can be manufactured in ultra-thin and compact sizes, which shows great promise in various applications. 
-            Despite its advantage in miniaturization, its practicality is constrained by spatially varying aberrations and distortions, which significantly degrade the image quality. 
-            Several previous arts have attempted to address different types of aberrations, yet most of them are mainly designed for the traditional bulky lens and ineffective to remedy harsh aberrations of the metalens. 
-            While there have existed aberration correction methods specifically for metalens, they still fall short of restoration quality. 
-            In this work, we propose a novel aberration correction framework for metalens-captured images, harnessing Vision Transformers (ViT) that have the potential to restore metalens images with non-uniform aberrations. 
-            Specifically, we devise a Multiple Adaptive Filters Guidance (MAFG), where multiple Wiener filters enrich the degraded input images with various noise-detail balances and a cross-attention module reweights the features considering the different degrees of aberrations. 
-            In addition, we introduce a Spatial and Transposed self-Attention Fusion (STAF) module, which aggregates features from spatial self-attention and transposed self-attention modules to further ameliorate aberration correction. 
-            We conduct extensive experiments, including correcting aberrated images and videos, and clean 3D reconstruction. 
-            The proposed method outperforms the previous arts by a significant margin. We further fabricate a metalens and verify the practicality of our method by restoring the images captured with the manufactured metalens.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <!-- <div class="column is-four-fifths"> -->
-      <div class="column">
-        <h2 class="title is-3">Metalens Fabrication</h2>
-        <div class="content has-text-justified">
-          <div class="image-row">
-            <img src="./assets/images/fig_metalens.jpg" alt="Metalens Figure" style="width: 60%; margin-right: 20px"/>
-            <img src="./assets/images/fig_fab.jpg" alt="Fabrication Figure" style="width: 40%; margin-bottom: 20px;"/>
-          </div>
-          <p>
-            We fabricated a metalens with the PSF from <a href="https://light.princeton.edu/publication/neural-nano-optics/" target="_blank">Neural Nano optics</a>. 
-            A metalens with a diameter of 500 &micro;m and a focal length of 1 mm was designed based on the optimization of a polynomial phase equation.
-            The SiN meta-atom library was generated using rigorous coupled-wave analysis simulations for circular pillars with a height of 750 nm. 
-            The widths of the selected meta-atoms ranged from 100 to 300 nm, with a lattice period of 350 nm. 
-            <br>
-            A 750 nm thick SiN layer was deposited onto a SiO<sub>2</sub> substrate using plasma-enhanced chemical vapor deposition to fabricate the designed metalens. 
-            A 200 nm thick positive photoresist layer was spin-coated at 4000 RPM. 
-            The pattern of circular nano-pillar meta-atoms was then transferred onto the positive photoresist using electron beam lithography (Figure right (a)), with a dose of 3.75 C/m<sup>2</sup>. 
-            To prevent charging, 100 &micro;L of ESPACER was spin-coated at 2000 RPM for 30 seconds. 
-            <br>
-            The exposed resist was developed in a 1:3 solution of methyl isobutyl ketone/isopropyl alcohol for 11 minutes. 
-            Subsequently, a 40 nm thick chromium layer was deposited as a hard mask using an electron beam evaporator (Figure right (b)). 
-            The unexposed photoresist was removed through a lift-off process in acetone at room temperature for 1 hour, leaving the Cr hard mask intact. 
-            Patterning was finalized using inductively coupled plasma etching with SF<sub>6</sub> and C<sub>4</sub>H<sub>8</sub> gases for 10 minutes. 
-            Finally, the Cr hard mask was removed using a chromium etchant for 5 minutes.
-            The fabricated metalens is shown on the left-side of the figure.
-          </p>
-        </div>
-        <div class="column">
-          <center>
-            <img src="./assets/images/fig_metalens_imaging_setup.jpg" style="width: 90%;"/>
-          </center>
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            The above figure illustrates the image capture setup.
-            An optical microscope system was set up to obtain images through the metalens. 
-            The images displayed on a 5.5-inch FHD display were captured using a CMOS camera coupled with a magnification system consisting of a 20x objective lens with 0.5 NA and a tube lens.
-            The metalens was positioned such that its focal plane coincided with the focal plane of the objective lens using a linear motorized stage. 
-            Camera exposure time was adjusted using a white image prior to recording to prevent saturation. 
-            The point spread functions (PSFs) were then acquired using the same setup with 450 nm laser, 532 nm laser, and 635 nm laser for calibration and training of the model.
-            The following images show the restoration results of our model on the real images captured with the fabricated metalens under this setup.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Fourth row -->
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h3 class="title is-5" style="margin-bottom: 10px;">Correcting Images Captured with the Fabricated Metalens</h3>
-      <div id="results-carousel" class="carousel results-carousel">
-       
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/1.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/1.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/3.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/3.png" alt="After Image" width="100%"></div>
-          
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/61.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/61.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        
-        <!-- <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><img src="./assets/images/real/input/118.png" alt="Before Image" width="100%"></div>
-            <div class="video"><img src="./assets/images/real/restored/118.png" alt="After Image" width="100%"></div>
-          </div>
-        </div> -->
-
-        <!-- <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/160.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/160.png" alt="After Image" width="100%"></div>
-          </div>
-        </div> -->
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/136.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/136.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <!-- <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><img src="./assets/images/real/input/172.png" alt="Before Image" width="100%"></div>
-            <div class="video"><img src="./assets/images/real/restored/172.png" alt="After Image" width="100%"></div>
-          </div>
-        </div> -->
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/181.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/181.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <!-- <div class="full" style="margin-top: 2px; margin-right: 2px; height: 40px; width: 28px;"></div> -->
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/221.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/221.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.65">
-            <div class="video"><div class="desc_left">Input</div><img src="./assets/images/real/input/139.png" alt="Before Image" width="100%"></div>
-            <div class="video"><div class="desc">Restored</div><img src="./assets/images/real/restored/139.png" alt="After Image" width="100%"></div>
-          </div>
-        </div>
-      </div>
-  </div>
-</section>
 <script>
   document.querySelectorAll('.twentytwenty-container').forEach(container => {
     container.addEventListener('mousemove', (event) => {
@@ -957,482 +610,12 @@
   });
 </script>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <!-- <div class="column is-four-fifths"> -->
-      <div class="column">
-        <h2 class="title is-3">Methods</h2>
-        <div class="content has-text-justified">
-          <div class="column">
-            <img src="./assets/images/fig_architecture.jpg" />
-          </div>
-          <p>
-            Our model comprises Multiple Adaptive Filters Guidance (MAFG) which produces different representations
-            with various noise-detail balances, and a Spatial and Transposed self-Attention Fusion (STAF) module that aggregates features differently
-            in encoder and decoder.
-          </p>
-          <br>
-          <h4 class="title is-5" style="margin-bottom: 10px;">Multiple Adaptive Filters Guidance (MAFG)</h4>
-          <div class="column">
-            <center>
-              <img src="./assets/images/fig_MAFG.jpg" style="width: 90%;"/>
-            </center>
-          </div>
-          <p>
-            We propose to use multiple Wiener filters to guide aberration correction with several distinct representations.
-            It is not feasible to obtain an optimal Wiener filter with accurate SNR as noise distribution is unknown in the real world.
-            Instead of estimating the noise distribution, we adopt multiple Wiener filters with different \( K \).
-            Such design can approximate the ideal filter by employing \( M \) filters with different \( K \) in a wide range.
-            Various representations are fed to the restoration model, and they can enrich the features complementarily, which in turn improves aberration correction.
-            <br>
-            We extend multiple Wiener filters to Multiple Adaptive Filters Guidance (MAFG), which determines \( K \) adaptively considering the image intensity.
-            Image with higher intensity tends to have better signal quality, so brighter channels often experience less noise and are less sensitive to noise. 
-            Thus, we penalize noise less and capture more information for bright images by adjusting \( K \) with the image intensity. 
-            Also, we treat each channel differently to avoid suppressing high-SNR details unnecessarily, since metalens exhibit wavelength-dependent aberrations where each color channel suffers differently due to the chromatic responses.
-            <br>
-            To dynamically integrate these diverse representations, we employ a cross-attention module that reweights the filtered features according to their relevance to the median representation.
-            This enables spatially adaptive correction, guiding the restoration network with features emphasized based on the severity of local aberration.
-          </p>
-          <br>
-          <h4 class="title is-5" style="margin-bottom: 10px;">Spatial and Transposed self-Attention Fusion (STAF)</h4>
-          <div class="column">
-            <center>
-              <img src="./assets/images/fig_STAF.jpg" style="width: 50%; height: auto;" />
-            </center>
-          </div>
-          <p>
-            We propose a Spatial and Transposed self-Attention Fusion (STAF) module to further ameliorate image restoration. 
-            By leveraging both Spatial Attention (SA) and Transposed Attention (TA), the STAF module can capture diverse spatial dependencies.
-            To fully realize the potential of SA and TA in image restoration, it is important to consider the distinct roles of the encoder and decoder in Transformers.
-            The encoder focuses on capturing global context, emphasizing the overall structure and relationships within images—a critical aspect of identifying patterns and features corrupted in degraded images. 
-            Meanwhile, the decoder specializes in recovering fine local details and textures necessary for high-fidelity restoration.
-            Therefore, STAF module applies SA and TA separately rather than alternately, as illustrated in Figure (a). 
-            Instead, as shown in Figure (b), STAF module fuses their features by assigning different weights in the encoder and decoder stages.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-3" style="margin-bottom: 40px;">Quantitative Results</h2>
-        <div class="content has-text-justified">
-          <p class="has-text-weight-bold has-text-centered">Image Aberration Correction</p>
-              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
-                <thead>
-                    <tr>
-                        <th rowspan="3" style="vertical-align: middle;">Method</th>
-                        <th colspan="3" rowspan="2" style="vertical-align: middle;">Non-uniform Aberration</th>
-                        <th colspan="6">Uniform Aberration</th>
-                    </tr>
-                    <tr>
-                        
-                        <th colspan="3">θ = 0°</th>
-                        <th colspan="3">θ = 20°</th>
-                    </tr>
-                    <tr>
-                        <th>PSNR↑</th>
-                        <th>SSIM↑</th>
-                        <th>LPIPS↓</th>
-                        <th>PSNR↑</th>
-                        <th>SSIM↑</th>
-                        <th>LPIPS↓</th>
-                        <th>PSNR↑</th>
-                        <th>SSIM↑</th>
-                        <th>LPIPS↓</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Wiener deconvolution</td>
-                        <td class="numeric">25.54</td>
-                        <td class="numeric">0.5743</td>
-                        <td class="numeric">0.5228</td>
-                        <td class="numeric">27.06</td>
-                        <td class="numeric">0.6561</td>
-                        <td class="numeric">0.4458</td>
-                        <td class="numeric">26.05</td>
-                        <td class="numeric">0.6332</td>
-                        <td class="numeric">0.5030</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/teboli/fast_two_stage_psf_correction">Eboli et al.</a></td>
-                        <td class="numeric">15.19</td>
-                        <td class="numeric">0.3784</td>
-                        <td class="numeric">0.8270</td>
-                        <td class="numeric">20.73</td>
-                        <td class="numeric">0.5359</td>
-                        <td class="numeric">0.6488</td>
-                        <td class="numeric">18.55</td>
-                        <td class="numeric">0.4480</td>
-                        <td class="numeric">0.7973</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/VITA-Group/DeblurGANv2">DeblurGANv2</a></td>
-                        <td class="numeric">24.08</td>
-                        <td class="numeric">0.6863</td>
-                        <td class="numeric">0.3233</td>
-                        <td class="numeric">25.27</td>
-                        <td class="numeric">0.7338</td>
-                        <td class="numeric">0.3032</td>
-                        <td class="numeric">21.79</td>
-                        <td class="numeric">0.6048</td>
-                        <td class="numeric">0.4810</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/dongjxjx/dwdn">DWDN</a></td>
-                        <td class="numeric">26.40</td>
-                        <td class="numeric">0.7656</td>
-                        <td class="numeric">0.2854</td>
-                        <td class="numeric">29.38</td>
-                        <td class="numeric">0.8318</td>
-                        <td class="numeric">0.2459</td>
-                        <td class="numeric">25.68</td>
-                        <td class="numeric">0.7282</td>
-                        <td class="numeric">0.3267</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/princeton-computational-imaging/Neural_Nano-Optics">Tseng et al.</a></td>
-                        <td class="numeric">28.66</td>
-                        <td class="numeric">0.8045</td>
-                        <td class="numeric">0.2949</td>
-                        <td class="numeric">29.88</td>
-                        <td class="numeric">0.8373</td>
-                        <td class="numeric">0.2507</td>
-                        <td class="numeric">28.09</td>
-                        <td class="numeric">0.7841</td>
-                        <td class="numeric">0.3117</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/swz30/Restormer">Restormer</a></td>
-                        <td class="numeric">27.84</td>
-                        <td class="numeric">0.8091</td>
-                        <td class="numeric">0.2753</td>
-                        <td class="numeric">31.09</td>
-                        <td class="numeric">0.8827</td>
-                        <td class="numeric">0.1804</td>
-                        <td class="numeric">28.53</td>
-                        <td class="numeric">0.8020</td>
-                        <td class="numeric">0.2871</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/swz30/Restormer">Restormer</a> + SWF</td>
-                        <td class="numeric">29.87</td>
-                        <td class="numeric">0.8289</td>
-                        <td class="numeric">0.2812</td>
-                        <td class="numeric">33.58</td>
-                        <td class="numeric">0.8804</td>
-                        <td class="numeric">0.2003</td>
-                        <td class="numeric">28.95</td>
-                        <td class="numeric">0.7908</td>
-                        <td class="numeric">0.3262</td>
-                    </tr>
-                    <tr>
-                        <td>Ours</td>
-                        <td class="numeric"><strong>34.29</strong></td>
-                        <td class="numeric"><strong>0.8760</strong></td>
-                        <td class="numeric"><strong>0.2052</strong></td>
-                        <td class="numeric"><strong>35.06</strong></td>
-                        <td class="numeric"><strong>0.8961</strong></td>
-                        <td class="numeric"><strong>0.1763</strong></td>
-                        <td class="numeric"><strong>32.32</strong></td>
-                        <td class="numeric"><strong>0.8409</strong></td>
-                        <td class="numeric"><strong>0.2542</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-            <small><i>* SWF refers to "Single Wiener Filter".</i></small>
-
-
-              <!-- <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
-                <thead>
-                    <tr>
-                        <th rowspan="3" style="vertical-align: middle; min-width: 250px;">Method</th>
-                        <th colspan="15">Uniform Aberration</th>
-                    </tr> 
-                    <tr>
-                        <th colspan="3" class="numeric">θ = 0°</th>
-                        <th colspan="3" class="numeric">θ = 5°</th>
-                        <th colspan="3" class="numeric">θ = 10°</th>
-                        <th colspan="3" class="numeric">θ = 15°</th>
-                        <th colspan="3" class="numeric">θ = 20°</th>
-                    </tr>
-
-                    <tr>
-                        <th>PSNR↑</th>
-                        <th>SSIM↑</th>
-                        <th>LPIPS↓</th>
-                        <th>PSNR↑</th>
-                        <th>SSIM↑</th>
-                        <th>LPIPS↓</th>
-                        <th>PSNR↑</th>
-                        <th>SSIM↑</th>
-                        <th>LPIPS↓</th>
-                        <th>PSNR↑</th>
-                        <th>SSIM↑</th>
-                        <th>LPIPS↓</th>
-                        <th>PSNR↑</th>
-                        <th>SSIM↑</th>
-                        <th>LPIPS↓</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Wiener deconvolution</td>
-                        <td class="numeric">27.06</td>
-                        <td class="numeric">0.6561</td>
-                        <td class="numeric">0.4458</td>
-                        <td class="numeric">27.14</td>
-                        <td class="numeric">0.6653</td>
-                        <td class="numeric">0.4316</td>
-                        <td class="numeric">26.72</td>
-                        <td class="numeric">0.6455</td>
-                        <td class="numeric">0.4661</td>
-                        <td class="numeric">26.61</td>
-                        <td class="numeric">0.6479</td>
-                        <td class="numeric">0.4656</td>
-                        <td class="numeric">26.05</td>
-                        <td class="numeric">0.6332</td>
-                        <td class="numeric">0.5030</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/teboli/fast_two_stage_psf_correction">Eboli et al.</a></td>
-                        <td class="numeric">20.73</td>
-                        <td class="numeric">0.5359</td>
-                        <td class="numeric">0.6488</td>
-                        <td class="numeric">20.75</td>
-                        <td class="numeric">0.5363</td>
-                        <td class="numeric">0.6560</td>
-                        <td class="numeric">20.36</td>
-                        <td class="numeric">0.5172</td>
-                        <td class="numeric">0.6909</td>
-                        <td class="numeric">19.40</td>
-                        <td class="numeric">0.4794</td>
-                        <td class="numeric">0.7512</td>
-                        <td class="numeric">18.55</td>
-                        <td class="numeric">0.4480</td>
-                        <td class="numeric">0.7973</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/VITA-Group/DeblurGANv2">DeblurGANv2</a></td>
-                        <td class="numeric">25.27</td>
-                        <td class="numeric">0.7338</td>
-                        <td class="numeric">0.3032</td>
-                        <td class="numeric">25.18</td>
-                        <td class="numeric">0.7286</td>
-                        <td class="numeric">0.3041</td>
-                        <td class="numeric">24.51</td>
-                        <td class="numeric">0.7025</td>
-                        <td class="numeric">0.3335</td>
-                        <td class="numeric">23.53</td>
-                        <td class="numeric">0.6599</td>
-                        <td class="numeric">0.4036</td>
-                        <td class="numeric">21.79</td>
-                        <td class="numeric">0.6048</td>
-                        <td class="numeric">0.4810</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/dongjxjx/dwdn">DWDN</a></td>
-                        <td class="numeric">29.38</td>
-                        <td class="numeric">0.8318</td>
-                        <td class="numeric">0.2459</td>
-                        <td class="numeric">29.04</td>
-                        <td class="numeric">0.8256</td>
-                        <td class="numeric">0.2505</td>
-                        <td class="numeric">27.99</td>
-                        <td class="numeric">0.8010</td>
-                        <td class="numeric">0.2691</td>
-                        <td class="numeric">27.09</td>
-                        <td class="numeric">0.7763</td>
-                        <td class="numeric">0.2969</td>
-                        <td class="numeric">25.68</td>
-                        <td class="numeric">0.7282</td>
-                        <td class="numeric">0.3267</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/princeton-computational-imaging/Neural_Nano-Optics">Tseng et al.</a></td>
-                        <td class="numeric">29.88</td>
-                        <td class="numeric">0.8373</td>
-                        <td class="numeric">0.2507</td>
-                        <td class="numeric">29.91</td>
-                        <td class="numeric">0.8366</td>
-                        <td class="numeric">0.2513</td>
-                        <td class="numeric">29.59</td>
-                        <td class="numeric">0.8213</td>
-                        <td class="numeric">0.2587</td>
-                        <td class="numeric">29.14</td>
-                        <td class="numeric">0.8141</td>
-                        <td class="numeric">0.2701</td>
-                        <td class="numeric">28.09</td>
-                        <td class="numeric">0.7841</td>
-                        <td class="numeric">0.3117</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/swz30/Restormer">Restormer</a></td>
-                        <td class="numeric">31.09</td>
-                        <td class="numeric">0.8827</td>
-                        <td class="numeric">0.1804</td>
-                        <td class="numeric">30.21</td>
-                        <td class="numeric">0.8654</td>
-                        <td class="numeric">0.1956</td>
-                        <td class="numeric">31.51</td>
-                        <td class="numeric">0.8671</td>
-                        <td class="numeric">0.2045</td>
-                        <td class="numeric">30.98</td>
-                        <td class="numeric">0.8526</td>
-                        <td class="numeric">0.2202</td>
-                        <td class="numeric">28.53</td>
-                        <td class="numeric">0.8020</td>
-                        <td class="numeric">0.2871</td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://github.com/swz30/Restormer">Restormer</a> + SWF</td>
-                        <td class="numeric">33.58</td>
-                        <td class="numeric">0.8804</td>
-                        <td class="numeric">0.2003</td>
-                        <td class="numeric">33.07</td>
-                        <td class="numeric">0.8672</td>
-                        <td class="numeric">0.2227</td>
-                        <td class="numeric">32.10</td>
-                        <td class="numeric">0.8434</td>
-                        <td class="numeric">0.2504</td>
-                        <td class="numeric">31.21</td>
-                        <td class="numeric">0.8337</td>
-                        <td class="numeric">0.2630</td>
-                        <td class="numeric">28.95</td>
-                        <td class="numeric">0.7908</td>
-                        <td class="numeric">0.3262</td>
-                    </tr>
-                    <tr>
-                        <td>Ours</td>
-                        <td class="numeric"><strong>35.06</strong></td>
-                        <td class="numeric"><strong>0.8961</strong></td>
-                        <td class="numeric"><strong>0.1763</strong></td>
-                        <td class="numeric"><strong>34.83</strong></td>
-                        <td class="numeric"><strong>0.8904</strong></td>
-                        <td class="numeric"><strong>0.1795</strong></td>
-                        <td class="numeric"><strong>34.39</strong></td>
-                        <td class="numeric"><strong>0.8788</strong></td>
-                        <td class="numeric"><strong>0.1979</strong></td>
-                        <td class="numeric"><strong>34.05</strong></td>
-                        <td class="numeric"><strong>0.8708</strong></td>
-                        <td class="numeric"><strong>0.2070</strong></td>
-                        <td class="numeric"><strong>32.32</strong></td>
-                        <td class="numeric"><strong>0.8409</strong></td>
-                        <td class="numeric"><strong>0.2542</strong></td>
-                    </tr>
-                </tbody>
-            </table> -->
-          <p class="has-text-weight-bold has-text-centered">Video Aberration Correction</p>
-              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th colspan="3"><a href="https://github.com/shuochsu/DeepVideoDeblurring?tab=readme-ov-file">DVD</a></th>
-                  </tr>
-                  <tr>
-                    <th>Method</th>
-                    <th>PSNR&uarr;</th>
-                    <th>SSIM&uarr;</th>
-                    <th>LPIPS&darr;</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a href="https://github.com/JingyunLiang/VRT">VRT</a></td>
-                    <td class="numeric">23.23</td>
-                    <td class="numeric">0.6906</td>
-                    <td class="numeric">0.3921</td>
-                  </tr>
-                  <tr>
-                    <td>VRT <em>w/</em> Ours</td>
-                    <td class="numeric"><strong>28.89</strong></td>
-                    <td class="numeric"><strong>0.8602</strong></td>
-                    <td class="numeric"><strong>0.2102</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-            
-
-
-          <!-- Third Table -->
-          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin-top: 5px;">
-            <p class="has-text-weight-bold has-text-centered">3D Reconstruction with Aberrated Images</p>
-            <thead>
-              <tr>
-                <th></th>
-                <th colspan="3"><a href="https://github.com/Fyusion/LLFF">LLFF</a></th>
-                <th colspan="3"><a href="https://www.tanksandtemples.org/">Tanks&Temples</a></th>
-                <th colspan="3"><a href="https://github.com/google-research/multinerf">Mip-NeRF360</a></th>
-              </tr>
-              <tr>
-                <th>Method</th>
-                <th>PSNR&uarr;</th>
-                <th>SSIM&uarr;</th>
-                <th>LPIPS&darr;</th>
-                <th>PSNR&uarr;</th>
-                <th>SSIM&uarr;</th>
-                <th>LPIPS&darr;</th>
-                <th>PSNR&uarr;</th>
-                <th>SSIM&uarr;</th>
-                <th>LPIPS&darr;</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a href="https://github.com/graphdeco-inria/gaussian-splatting">3D-GS</a></td>
-                <td class="numeric">17.43</td>
-                <td class="numeric">0.4083</td>
-                <td class="numeric">0.7428</td>
-                <td class="numeric">16.81</td>
-                <td class="numeric">0.3875</td>
-                <td class="numeric">0.7263</td>
-                <td class="numeric">19.58</td>
-                <td class="numeric">0.3857</td>
-                <td class="numeric">0.8166</td>
-              </tr>
-              <tr>
-                <td>3D-GS + Ours</td>
-                <td class="numeric"><strong>25.29</strong></td>
-                <td class="numeric"><strong>0.7513</strong></td>
-                <td class="numeric"><strong>0.2138</strong></td>
-                <td class="numeric"><strong>23.17</strong></td>
-                <td class="numeric"><strong>0.6852</strong></td>
-                <td class="numeric"><strong>0.2639</strong></td>
-                <td class="numeric"><strong>25.94</strong></td>
-                <td class="numeric"><strong>0.6676</strong></td>
-                <td class="numeric"><strong>0.3693</strong></td>
-              </tr>
-            </tbody>
-          </table>
-          <p style="margin-top: 5px;">
-            To evaluate the performance of aberration correction tasks across image, video, and 3D reconstruction domains, 
-            we synthesized aberration on existing datasets by applying point spread functions to construct aberrated datasets.
-            These tables present the quantitative results of various methods for each task, demonstrating the superior performance of our model.
-            For video and 3D reconstruction tasks, only Non-uniform Aberration was applied.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{lee2024aberration,
-  title={Aberration Correcting Vision Transformers for High-Fidelity Metalens Imaging},
-  author={Lee, Byeonghyeon and Kim, Youbin and Jo, Yongjae and Kim, Hyunsu and Park, Hyemi and Kim, Yangkyu and Mandal, Debabrata and Chakravarthula, Praneeth and Kim, Inki and Park, Eunbyung},
-  journal={arXiv preprint arXiv:2412.04591},
-  year={2024}
-}</code></pre>
+    <pre><code>
+
+    </code></pre>
   </div>
 </section>
 
