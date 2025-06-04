@@ -5,7 +5,7 @@
 > **DiffuseSlide: Training-Free High Frame Rate Video Generation Diffusion**  
 > [Geunmin Hwang](https://github.com/GeunminHwang), [Hyun-kyu Ko](https://github.com/Ko-Lani), [Younghyun Kim](https://github.com/yhyun225), [Seungryong Lee](https://github.com/twowindragon), [Eunbyung Park](https://silverbottlep.github.io/)
 > 
-### [Project Page](https://geunminhwang.github.io/DiffuseSlide/)  [Paper](https://arxiv.org/abs/2506.01454)
+### [[Project Page]](https://geunminhwang.github.io/DiffuseSlide/)  [Paper](https://arxiv.org/abs/2506.01454)
 
 DiffuseSlide is a training-free framework for generating high frame-rate videos.  
 It leverages noise re-injection and sliding-window latent denoising to enhance temporal consistency and visual quality without additional fine-tuning.
