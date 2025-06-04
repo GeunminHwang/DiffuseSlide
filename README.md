@@ -4,6 +4,7 @@ Official implementation of our paper:
 
 > **DiffuseSlide: Training-Free High Frame Rate Video Generation Diffusion**  
 > [Geunmin Hwang](https://github.com/GeunminHwang), [Hyun-kyu Ko](https://github.com/Ko-Lani), [Younghyun Kim](https://github.com/yhyun225), [Seungryong Lee](https://github.com/twowindragon), [Eunbyung Park](https://silverbottlep.github.io/)
+> 
 [Project Page](https://geunminhwang.github.io/DiffuseSlide/) 
 [Paper](https://arxiv.org/abs/2506.01454)
 
