@@ -484,11 +484,13 @@
               video.src = video.getAttribute("data-src");
               video.removeAttribute("data-src");
             }
-            if (video.paused) {
-              tryPlay(video);
-              if (pauseButton) {
-                pauseButton.style.backgroundImage = "url('./assets/images/pause.png')";
-              }
+
+            // 핵심: 먼저 pause 호출로 충돌 방지
+            tryPause(video);
+            tryPlay(video);
+
+            if (pauseButton) {
+              pauseButton.style.backgroundImage = "url('./assets/images/pause.png')";
             }
           });
         } else {
