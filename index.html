@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>DiffuseSlide: Training-Free High Frame Rate Video Generation Diffusion</title>
+  <link rel="icon" href="data:,">
   <style>
     .hr {width: 100%; height: 1px; margin: 48px 0; background-color: #d6dbdf;}
     table {
@@ -397,6 +398,17 @@
 
 
 <script>
+  function tryPlay(video) {
+    return video.play().catch((e) => {
+      console.warn("play() failed:", e);
+    });
+  }
+  function tryPause(video) {
+    if (!video.paused) {
+      video.pause();
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll('.item');
 
@@ -419,14 +431,10 @@
           const isPaused = pauseButton.style.backgroundImage.includes('play.png');
           if (isPaused) {
             pauseButton.style.backgroundImage = "url('./assets/images/pause.png')";
-            videos.forEach(video => {
-              video.play().catch((e) => {
-                console.warn("play() failed:", e);
-              });
-            });
+            videos.forEach(video => tryPlay(video));
           } else {
             pauseButton.style.backgroundImage = "url('./assets/images/play.png')";
-            videos.forEach(video => video.pause());
+            videos.forEach(video => tryPause(video));
           }
         });
       }
@@ -477,9 +485,7 @@
               video.removeAttribute("data-src");
             }
             if (video.paused) {
-              video.play().catch((e) => {
-                console.warn("play() failed:", e);
-              });
+              tryPlay(video);
               if (pauseButton) {
                 pauseButton.style.backgroundImage = "url('./assets/images/pause.png')";
               }
@@ -487,9 +493,7 @@
           });
         } else {
           videos.forEach((video) => {
-            if (!video.paused) {
-              video.pause();
-            }
+            tryPause(video);
           });
         }
       });
