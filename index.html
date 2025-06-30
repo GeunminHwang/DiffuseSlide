@@ -1,9 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>DiffuseSlide: Training-Free High Frame Rate Video Generation Diffusion</title>
   <link rel="icon" href="data:,">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 스타일 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/twentytwenty.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
   <style>
     .hr {width: 100%; height: 1px; margin: 48px 0; background-color: #d6dbdf;}
     table {
@@ -12,39 +27,15 @@
       text-align: center;
       margin-top: 20px;
     }
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-    }
-    th {
-      font-weight: bold;
-      border-bottom: 2px solid black;
-    }
-    td {
-      font-size: 1em;
-    }
-    .bold {
-      font-weight: bold;
-    }
-    .top-border {
-      border-top: 2px solid black;
-    }
-    .numeric {
-      font-family: 'Noto-Sans', sans-serif;
-      vertical-align: middle;
-    }
+    th, td { border: 1px solid black; padding: 8px; }
+    th { font-weight: bold; border-bottom: 2px solid black; }
+    td { font-size: 1em; }
+    .bold { font-weight: bold; }
+    .top-border { border-top: 2px solid black; }
+    .numeric { font-family: 'Noto-Sans', sans-serif; vertical-align: middle; }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./assets/css/index.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/twentytwenty.css">
+
+  <!-- JS 라이브러리 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
@@ -396,38 +387,33 @@
 </section>
 
 
-
 <script>
+window.addEventListener("load", () => {
+  document.querySelectorAll("video").forEach(video => {
+    video.muted = true;
+    video.play().catch(err => {
+      console.warn("Autoplay failed:", err);
+    });
+  });
+
   const containers = document.querySelectorAll('.twentytwenty-container');
   containers.forEach((container) => {
     const videos = container.querySelectorAll('video');
-    
     if (videos.length === 2) {
-      const video1 = videos[0];
-      const video2 = videos[1];
+      const [video1, video2] = videos;
+      let v1Ready = false, v2Ready = false;
 
-      let video1Loaded = false;
-      let video2Loaded = false;
-
-      video1.addEventListener('loadeddata', () => {
-        video1Loaded = true;
-        syncVideos();
-      });
-
-      video2.addEventListener('loadeddata', () => {
-        video2Loaded = true;
-        syncVideos();
-      });
-
-      function syncVideos() {
-        if (video1Loaded && video2Loaded) {
+      const syncVideos = () => {
+        if (v1Ready && v2Ready) {
           video1.currentTime = 0;
           video2.currentTime = 0;
-
           video1.play();
           video2.play();
         }
-      }
+      };
+
+      video1.addEventListener('loadeddata', () => { v1Ready = true; syncVideos(); });
+      video2.addEventListener('loadeddata', () => { v2Ready = true; syncVideos(); });
 
       video1.addEventListener('timeupdate', () => {
         if (Math.abs(video1.currentTime - video2.currentTime) > 0.1) {
@@ -441,34 +427,21 @@
         }
       });
 
-      video1.addEventListener('ended', () => {
-        video2.currentTime = 0;
-        video2.play();
-      });
-
-      video2.addEventListener('ended', () => {
-        video1.currentTime = 0;
-        video1.play();
-      });
+      video1.addEventListener('ended', () => { video2.currentTime = 0; video2.play(); });
+      video2.addEventListener('ended', () => { video1.currentTime = 0; video1.play(); });
     }
   });
+
+  $(".twentytwenty-container").twentytwenty();
+});
 </script>
 
-<script>
-  document.querySelectorAll('.twentytwenty-container').forEach(container => {
-    container.addEventListener('mousemove', (event) => {
-      const desc = container.querySelector('.desc');
-      if (desc) {
-        const descRect = desc.getBoundingClientRect();
-        const mouseX = event.clientX;
-
-        const x = mouseX - descRect.left;
-
-        desc.style.clipPath = `polygon(${Math.max(0, x + 2)}px 0, 100% 0, 100% 100%, ${Math.max(0, x + 2)}px 100%)`;
-      }
-    });
-  });
-</script>
+<!-- Plugin scripts -->
+<script src="./assets/js/bulma-carousel.min.js"></script>
+<script src="./assets/js/bulma-slider.min.js"></script>
+<script src="./assets/js/index.js"></script>
+<script src="./assets/js/jquery.event.move.js"></script>
+<script src="./assets/js/jquery.twentytwenty.js"></script>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -501,18 +474,5 @@
   </div>
 </footer>
 
-  <!-- custom js file  -->
-  <!-- <script defer src="./assets/js/fontawesome.all.min.js"></script> -->
-  <script src="./assets/js/bulma-carousel.min.js"></script>
-  <script src="./assets/js/bulma-slider.min.js"></script>
-  <script src="./assets/js/index.js"></script>
-  <script src="./assets/js/jquery.event.move.js"></script>
-  <script src="./assets/js/jquery.twentytwenty.js"></script>
-  <script>
-  $(function(){
-    $(".twentytwenty-container").twentytwenty();
-    // $(".twentytwenty-container", "#results-carousel").twentytwenty({default_offset_pct: 0.5, ratio: 0.5});
-  });
-  </script>
 </body>
 </html>
